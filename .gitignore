@@ -1,0 +1,9 @@
+.cache
+node_modules
+yarn-error.log
+
+/public
+
+.prettierrc
+.eslintrc.js
+.DS_Store
