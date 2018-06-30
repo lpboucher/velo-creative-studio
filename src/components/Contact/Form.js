@@ -10,7 +10,7 @@ const Form = () => (
     <FormLabel >Phone number: </FormLabel><FormInput name="phone" type="text" />
     <FormLabel >Company: </FormLabel><FormInput name="client" type="text" />
     <FormLabel >What you would like to discuss: </FormLabel><FormMessage name="message" type="text" rows="10" />
-    <FormButton>Submit</FormButton>
+    <FormButton type="submit">Submit</FormButton>
   </ContactForm>
 );
 
