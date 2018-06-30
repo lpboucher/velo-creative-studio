@@ -5,6 +5,7 @@ import { ContactForm, FormLabel, FormInput, FormMessage, FormButton } from '../S
 const Form = () => (
   <ContactForm name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
     <h1>Let's Get In Touch</h1>
+    <input type="hidden" name="form-name" value="contact" />
     <FormLabel >Full Name: </FormLabel><FormInput name="name" type="text" />
     <FormLabel >E-mail address: </FormLabel><FormInput name="email" type="email" />
     <FormLabel >Phone number: </FormLabel><FormInput name="phone" type="text" />
