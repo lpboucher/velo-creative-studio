@@ -127,8 +127,8 @@ export const ProjectMasonry = styled.div`
         -moz-column-break-inside: avoid;
         position: relative;
 
-        div {
-                height: 100%;
+        & > * {
+            height: 100%;
             }
 
         &:hover .gatsby-image-outer-wrapper {
