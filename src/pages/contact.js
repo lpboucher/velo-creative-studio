@@ -1,13 +1,18 @@
 import React from 'react';
 
-import { ContactWrapper, ContactColumn } from '../components/Styles/ContactStyles';
+import { InfoWrapper, InfoColumn } from '../components/Styles/ContactStyles';
+
+import Form from '../components/Contact/Form';
 
 const contactPage = () => (
-  <ContactWrapper>
-    <ContactColumn><p>Email: vl@velocreative.studio</p></ContactColumn>
-    <ContactColumn><p>Phone: +31 611985364</p></ContactColumn>
-    <ContactColumn><p>Skype: @verolagarde</p></ContactColumn>
-  </ContactWrapper>
+  <div>
+    <InfoWrapper>
+      <InfoColumn><p>Email: vl@velocreative.studio</p></InfoColumn>
+      <InfoColumn><p>Phone: +31 611985364</p></InfoColumn>
+      <InfoColumn><p>Skype: @verolagarde</p></InfoColumn>
+    </InfoWrapper>
+    <Form />
+  </div>
 );
 
 export default contactPage;

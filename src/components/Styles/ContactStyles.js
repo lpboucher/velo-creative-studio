@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const ContactWrapper = styled.div`
+export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -11,7 +11,7 @@ export const ContactWrapper = styled.div`
     margin: 20px;
 `;
 
-export const ContactColumn = styled.div`
+export const InfoColumn = styled.div`
     display: flex;
     
     p {
