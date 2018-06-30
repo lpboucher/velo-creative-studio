@@ -5,7 +5,6 @@ export const CallToAction = styled.p`
 `;
 
 export const ServiceContainer = styled.div`
-    height: 50vh;
     padding: 40px;
 
     &:nth-of-type(2) {
