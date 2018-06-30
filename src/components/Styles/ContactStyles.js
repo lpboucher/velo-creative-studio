@@ -1,21 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
 
+export const ContactHeader = styled.div`
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0 40px;
+`;
+
 export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 50%;
 
-    font-size: 20px;
-    padding: 10px 40px 20px;
-    margin: 20px;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 20px 40px;
+
+    & + p {
+        padding: 0 40px;
+        font-size: 14px;
+        font-weight: 300;
+        margin-bottom: 0;
+    }
 `;
 
 export const InfoColumn = styled.div`
     display: flex;
     
-    p {
-        padding: 0 5px;
+    & > p {
+        margin-bottom: 0;
     }
 `;
 
@@ -23,17 +38,20 @@ export const FormLabel = styled.label`
     color: grey;
     width: 100%;
     margin-top: 10px;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 14px;
 `;
 
 export const FormInput = styled.input`
     border: 2px solid #d3bdaa;
-    width: 75%;
+    width: 50%;
     margin-bottom: 10px;
 `;
 
 export const FormMessage = styled.textarea`
     border: 2px solid #d3bdaa;
-    width: 75%;
+    width: 50%;
     margin-bottom: 10px;
 `;
 
@@ -50,13 +68,7 @@ export const ContactForm = styled.form`
     flex-direction: column;
     padding: 0 40px;
 
-    h1 {
-        text-transform: uppercase;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
     & > * {
-        padding: 10px;
+        padding: 10px 0;
     }
 `;

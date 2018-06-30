@@ -6,7 +6,9 @@ export const FooterWrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
 
-    font-size: 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 300;
     border-top: 0.5px solid;
     padding: 20px 0px 0px;
     margin: 0 40px;
