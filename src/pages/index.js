@@ -40,7 +40,9 @@ export const query = graphql`
     contentfulAbout {
       ...AboutData
     }
-    allContentfulService {
+    allContentfulService (
+      sort: {fields:[orderHome]}
+    ) {
       edges {
         node {
           ...ServiceData
