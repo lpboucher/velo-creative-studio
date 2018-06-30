@@ -1,14 +1,17 @@
 import React from 'react';
 
+import { ContactForm, FormLabel, FormInput, FormMessage, FormButton } from '../Styles/ContactStyles';
+
 const Form = () => (
-  <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-    <label >Full Name: <input name="name" type="text" /></label>
-    <label >E-mail address: <input name="email" type="text" /></label>
-    <label >Phone number: <input name="phone" type="text" /></label>
-    <label >Company: <input name="client" type="text" /></label>
-    <label >What you would like to discuss: <input name="message" type="text" /></label>
-    <button>Submit</button>
-  </form>
+  <ContactForm name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+    <h1>Let's Get In Touch</h1>
+    <FormLabel >Full Name: </FormLabel><FormInput name="name" type="text" />
+    <FormLabel >E-mail address: </FormLabel><FormInput name="email" type="email" />
+    <FormLabel >Phone number: </FormLabel><FormInput name="phone" type="text" />
+    <FormLabel >Company: </FormLabel><FormInput name="client" type="text" />
+    <FormLabel >What you would like to discuss: </FormLabel><FormMessage name="message" type="text" rows="10" />
+    <FormButton>Submit</FormButton>
+  </ContactForm>
 );
 
 export default Form;
