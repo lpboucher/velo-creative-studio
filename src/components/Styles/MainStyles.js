@@ -6,7 +6,7 @@ export const AboutContainer = styled.div`
     max-width: 1000px;
     font-size: 24px;
     padding: 40px;
-    p {
+    & > p {
         color: #8f8e8f;
         font-weight: 300;
         line-height: 1.5;
