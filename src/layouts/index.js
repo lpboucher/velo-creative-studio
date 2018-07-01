@@ -29,7 +29,9 @@ export default TemplateWrapper;
 
 export const query = graphql`
   query NavQuery{
-    allContentfulNavigation {
+    allContentfulNavigation (
+      filter: {visible: {eq:true}}
+    ) {
       edges {
         node {
           ...NavData
