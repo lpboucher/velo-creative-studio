@@ -6,7 +6,7 @@ import { ContactAnchor } from '../Styles/MainStyles';
 
 const Service = ({ service, count }) => (
   <ServiceContainer>
-    <ServiceTitle>{service.title}</ServiceTitle>
+    <ServiceTitle><span>0{count} </span><span>{service.title}</span></ServiceTitle>
     <p>{service.description.description}</p>
     <ContactAnchor count={count}>Contact Us</ContactAnchor>
     <CallToAction>Explore projects</CallToAction>

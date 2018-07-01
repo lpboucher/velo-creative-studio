@@ -4,6 +4,23 @@ import styled from 'styled-components';
 export const CallToAction = styled.p`
 `;
 
+export const ServiceTitle = styled.h1`
+    margin: 30px 0 60px;
+    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+
+    & > span {
+        &:first-child {
+            font-size: 60px;
+            padding: 0 10px;
+        }
+    }
+`;
+
 export const ServiceContainer = styled.div`
     padding: 40px;
 
@@ -40,6 +57,10 @@ export const ServiceContainer = styled.div`
                 content: "⟵ ";
             }
         }
+
+        & > ${ServiceTitle} {
+            flex-direction: row-reverse;
+        }
     }
 
     &:nth-of-type(4) {
@@ -59,11 +80,3 @@ export const ServiceContainer = styled.div`
         }
     }
 `;
-
-export const ServiceTitle = styled.h1`
-    margin: 30px 0 60px;
-    text-transform: uppercase;
-    font-size: 22px;
-    letter-spacing: 1.5px;
-`;
-// d8c5b4 e8d4c3
