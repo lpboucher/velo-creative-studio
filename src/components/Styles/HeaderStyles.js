@@ -3,8 +3,6 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
-  background: white;
-  height: 10vh;
   margin: 0 auto;
 `;
 
