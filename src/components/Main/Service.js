@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ServiceContainer, ServiceTitle, CallToAction } from '../Styles/ServiceStyles';
+import { ServiceContainer, ServiceTitle, CallToAction, ServiceWrapper } from '../Styles/ServiceStyles';
 import { ContactAnchor } from '../Styles/MainStyles';
 
 const Service = ({ service, count }) => (
-  <ServiceContainer>
-    <ServiceTitle><span>0{count} </span><span>{service.title}</span></ServiceTitle>
-    <p>{service.description.description}</p>
-    <ContactAnchor count={count}>Contact Us</ContactAnchor>
-    <CallToAction>Explore projects</CallToAction>
-  </ServiceContainer>
+  <ServiceWrapper>
+    <ServiceContainer>
+      <ServiceTitle><span>0{count} </span><span>{service.title}</span></ServiceTitle>
+      <p>{service.description.description}</p>
+      <ContactAnchor count={count}>Contact Us</ContactAnchor>
+      <CallToAction>Explore projects</CallToAction>
+    </ServiceContainer>
+  </ServiceWrapper>
 );
 
 Service.propTypes = {
@@ -24,6 +26,12 @@ export const query = graphql`
     description {
       id
       description
+    }
+    serviceFeature {
+      id
+      sizes ( maxWidth: 1000 ) {
+        ...GatsbyContentfulSizes
+      }
     }
   }
 `;
