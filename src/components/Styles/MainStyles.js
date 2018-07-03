@@ -3,14 +3,16 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 export const AboutContainer = styled.div`
-    max-width: 1000px;
     font-size: 24px;
     padding: 40px;
+    height: 90vh;
+    background-color: #f4f4f3;
     & > p {
         color: #8f8e8f;
         font-weight: 300;
         line-height: 1.5;
         font-size: 22px;
+        max-width: 1000px;
     }
 `;
 

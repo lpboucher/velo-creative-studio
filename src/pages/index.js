@@ -8,9 +8,9 @@ import Project from '../components/Projects/Project';
 import { HomeWrapper, ActionBox, Title } from '../components/Styles/MainStyles';
 import { ProjectWrapper } from '../components/Styles/ProjectStyles';
 
-const IndexPage = ({ data }) => (
+const IndexPage = ({ data, location }) => (
   <HomeWrapper>
-    <About about={data.contentfulAbout} />
+    <About about={data.contentfulAbout} location={location} />
 
     {data.allContentfulService.edges.map(({ node }, index) => (
       <Service key={node.id} service={node} count={index + 1} />
