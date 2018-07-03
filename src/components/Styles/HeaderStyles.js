@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
   margin: 0 auto;
+  height: 10vh;
+  background-color: #f4f4f3;
 `;
 
 export const HeaderContainer = styled.div`
@@ -32,6 +34,14 @@ text-decoration: none;
 font-size: 16px;
 font-weight: 300;
 letter-spacing: 2px;
+`;
+
+export const StyledLogo = styled(Link)`
+text-decoration: none;
+font-size: 16px;
+font-weight: 300;
+letter-spacing: 2px;
+color: ${props => (props.location.pathname === '/' ? '#f4f4f3' : '#4a4a4a')};
 `;
 
 export const StyledNavItem = styled.li`

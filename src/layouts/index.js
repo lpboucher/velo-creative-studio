@@ -15,7 +15,7 @@ const TemplateWrapper = ({ children, data, location }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header data={data} location={location} />
+    <Header nav={data} location={location} />
     {children()}
     <Footer />
   </div>
@@ -24,8 +24,6 @@ const TemplateWrapper = ({ children, data, location }) => (
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
 };
-
-export default TemplateWrapper;
 
 export const query = graphql`
   query NavQuery{
@@ -40,3 +38,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default TemplateWrapper;
