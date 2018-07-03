@@ -1,15 +1,24 @@
 import React from 'react';
+import Img from 'gatsby-image';
 
-import { ServiceContainer, ServiceTitle } from '../components/Styles/ServiceStyles';
+import { ServiceContainer, ServiceTitle, ServiceFeature, CallToAction, ServiceWrapper } from '../components/Styles/ServiceStyles';
+import { ContactAnchor } from '../components/Styles/MainStyles';
 
 const ServicePage = ({ data }) => (
   <div>
     <div />
     {data.allContentfulService.edges.map(({ node }, index) => (
-      <ServiceContainer>
-        <ServiceTitle><span>0{index + 1} </span><span>{node.title}</span></ServiceTitle>
-        <p>{node.description.description}</p>
-      </ServiceContainer>
+      <ServiceWrapper>
+        <ServiceContainer key={node.id}>
+          <ServiceTitle><span>0{index + 1} </span><span>{node.title}</span></ServiceTitle>
+          <p>{node.description.description}</p>
+          <ContactAnchor count={index + 1}>Contact Us</ContactAnchor>
+          <CallToAction>Explore projects</CallToAction>
+        </ServiceContainer>
+        <ServiceFeature title={node.title} index={index + 1} >
+          <Img sizes={node.serviceFeature.sizes} alt="" />
+        </ServiceFeature>
+      </ServiceWrapper>
     ))}
   </div>
 );

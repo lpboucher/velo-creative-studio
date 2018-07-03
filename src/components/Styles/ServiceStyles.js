@@ -23,60 +23,72 @@ export const ServiceTitle = styled.h1`
 
 export const ServiceContainer = styled.div`
     padding: 40px;
+`;
 
+export const ServiceWrapper = styled.div`
     &:nth-of-type(2) {
-        background-color: #d3bdaa;
-        color: white;
-        padding-right: 30%;
-        border-color: white;
+        & > ${ServiceContainer} {
+            background-color: #d3bdaa;
+            color: white;
+            border-color: white;
+            
 
-        & > ${CallToAction} {
-            float: right;
-            margin-right: -25%;
-            margin-top: 50px;
+            & > ${CallToAction} {
+                float: right;
+                margin-top: 50px;
 
-            &:after {
-                content: " ⟶";
+                &:after {
+                    content: " ⟶";
+                }
             }
-        }
+        }    
     }
 
     &:nth-of-type(3) {
-        background-color: white;
-        text-align: right;
-        color: #8f8e8f;
-        padding-left: 30%;
-        border-color: #8f8e8f;
+        & > ${ServiceContainer} {
+            background-color: white;
+            text-align: right;
+            color: #8f8e8f;
+            padding-left: 30%;
+            border-color: #8f8e8f;
 
-        & > ${CallToAction} {
-            float: left;
-            margin-left: -25%;
-            margin-top: 50px;
+            & > ${CallToAction} {
+                float: left;
+                margin-left: -25%;
+                margin-top: 50px;
 
-            &:before {
-                content: "⟵ ";
+                &:before {
+                    content: "⟵ ";
+                }
             }
-        }
 
-        & > ${ServiceTitle} {
-            flex-direction: row-reverse;
-        }
+            & > ${ServiceTitle} {
+                flex-direction: row-reverse;
+            }
+        }    
     }
 
     &:nth-of-type(4) {
-        background-color: #f4f4f3;
-        color: #4a4a4a;
-        padding-right: 30%;
-        border-color: #4a4a4a;
+        & > ${ServiceContainer} {
+            background-color: #f4f4f3;
+            color: #4a4a4a;
+            padding-right: 30%;
+            border-color: #4a4a4a;
 
-        & > ${CallToAction} {
-            float: right;
-            margin-right: -25%;
-            margin-top: 50px;
+            & > ${CallToAction} {
+                float: right;
+                margin-right: -25%;
+                margin-top: 50px;
 
-            &:after {
-                content: " ⟶";
+                &:after {
+                    content: " ⟶";
+                }
             }
-        }
+        }    
     }
+`;
+
+export const ServiceFeature = styled.div`
+    display: ${props => (props.index >= 3 ? 'none' : 'block')};
+    height: 20vh;
 `;
