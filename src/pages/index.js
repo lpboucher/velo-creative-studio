@@ -11,7 +11,7 @@ import { ProjectWrapper } from '../components/Styles/ProjectStyles';
 const IndexPage = ({ data, location }) => (
   <HomeWrapper>
     <About about={data.contentfulAbout} location={location} />
-
+    { /*
     {data.allContentfulService.edges.map(({ node }, index) => (
       <Service key={node.id} service={node} count={index + 1} />
     ))}
@@ -22,6 +22,7 @@ const IndexPage = ({ data, location }) => (
       ))}
       <ActionBox><Link to="/portfolio">View More Projects</Link></ActionBox>
     </ProjectWrapper>
+    */ }
   </HomeWrapper>
 );
 export const query = graphql`

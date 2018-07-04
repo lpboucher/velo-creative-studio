@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import Overdrive from 'react-overdrive';
 
-import { AboutContainer } from '../Styles/MainStyles';
+import { AboutContainer, WorkButton } from '../Styles/MainStyles';
+import { StyledLink } from '../Styles/HeaderStyles';
 
 class About extends Component {
   render() {
@@ -15,6 +17,11 @@ class About extends Component {
         <Overdrive to="logoAnimation">
           <p>velo creative studio</p>
         </Overdrive>
+        <WorkButton>
+          <StyledLink to="/portfolio">
+            View our work
+          </StyledLink>
+        </WorkButton>
       </AboutContainer>
     );
   }

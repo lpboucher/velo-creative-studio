@@ -77,3 +77,13 @@ export const ContactAnchor = styled.div`
     padding: 10px;
     margin-top: 50px;
 `;
+
+export const WorkButton = styled.div`
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 50px;
+`;
+
