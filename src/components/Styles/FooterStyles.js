@@ -11,7 +11,7 @@ export const FooterWrapper = styled.div`
     font-weight: 300;
     border-top: 0.5px solid;
     padding: 20px 0px 0px;
-    margin: 0 40px;
+    margin: 20px 40px 0;
 `;
 
 export const FooterColumn = styled.div`
