@@ -19,6 +19,10 @@ export const ServiceTitle = styled.h1`
             padding: 0 10px;
         }
     }
+
+    & + p {
+        width: 80%;
+    }
 `;
 
 export const ServiceContainer = styled.div`
@@ -28,9 +32,11 @@ export const ServiceContainer = styled.div`
 export const ServiceWrapper = styled.div`
     &:nth-of-type(2) {
         & > ${ServiceContainer} {
-            background-color: #d3bdaa;
-            color: white;
-            border-color: white;
+            background-color: #fafafa;
+            text-align: justify;
+            color: black;
+            border-color: black;
+            font-weight: 300;
             
 
             & > ${CallToAction} {
@@ -47,14 +53,14 @@ export const ServiceWrapper = styled.div`
     &:nth-of-type(3) {
         & > ${ServiceContainer} {
             background-color: white;
-            text-align: right;
+            direction: rtl;
+            text-align: justify;
             color: #8f8e8f;
-            padding-left: 30%;
             border-color: #8f8e8f;
+            font-weight: 300;
 
             & > ${CallToAction} {
                 float: left;
-                margin-left: -25%;
                 margin-top: 50px;
 
                 &:before {
@@ -63,21 +69,21 @@ export const ServiceWrapper = styled.div`
             }
 
             & > ${ServiceTitle} {
-                flex-direction: row-reverse;
+                
             }
         }    
     }
 
     &:nth-of-type(4) {
         & > ${ServiceContainer} {
-            background-color: #f4f4f3;
+            background-color: #fafafa;
+            text-align: justify;
             color: #4a4a4a;
-            padding-right: 30%;
             border-color: #4a4a4a;
+            font-weight: 300;
 
             & > ${CallToAction} {
                 float: right;
-                margin-right: -25%;
                 margin-top: 50px;
 
                 &:after {
@@ -90,5 +96,21 @@ export const ServiceWrapper = styled.div`
 
 export const ServiceFeature = styled.div`
     display: ${props => (props.index >= 3 ? 'none' : 'block')};
-    height: 20vh;
+    height: 60vh;
+`;
+
+export const ServiceCategories = styled.div`
+
+`;
+
+export const ServiceCategory = styled.div`
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
 `;
