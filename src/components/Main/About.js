@@ -13,10 +13,10 @@ class About extends Component {
     const { about, location } = this.props;
     return (
       <AboutContainer >
-        <p>{about.body.body}</p>
         <Overdrive to="logoAnimation">
           <p>velo creative studio</p>
         </Overdrive>
+        <p>{about.body.body}</p>
         <WorkButton>
           <StyledLink to="/portfolio">
             View our work
