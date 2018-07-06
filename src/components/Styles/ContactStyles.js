@@ -1,15 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { TwoColumn } from '../Styles/MainStyles';
+
 export const ContactWrapper = styled.div`
     display: flex;
+
+    & > ${TwoColumn}:first-child {
+        padding: 40px;
+    }
 `;
 
 export const ContactHeader = styled.div`
     text-transform: uppercase;
     font-size: 24px;
     font-weight: bold;
-    padding: 0 40px;
 `;
 
 export const InfoWrapper = styled.div`
@@ -20,10 +25,9 @@ export const InfoWrapper = styled.div`
 
     font-size: 14px;
     font-weight: 300;
-    padding: 20px 40px;
+    padding: 20px 0;
 
     & + p {
-        padding: 0 40px;
         font-size: 14px;
         font-weight: 300;
         margin-bottom: 0;
@@ -70,7 +74,6 @@ export const FormButton = styled.button`
 export const ContactForm = styled.form`
     display: flex;
     flex-direction: column;
-    padding: 0 40px;
 
     & > * {
         padding: 10px 0;
