@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const HeaderWrapper = styled.div`
   margin: 0 auto;
   height: 10vh;
-  background-color: #f4f4f3;
+  background-color: #f2f2f0;
 `;
 
 export const HeaderContainer = styled.div`
@@ -14,7 +14,7 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   z-index: 2;
-  background-color: #f4f4f3;
+  background-color: #f2f2f0;
 
   h1 {
     margin: 0;

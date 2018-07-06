@@ -6,7 +6,7 @@ export const AboutContainer = styled.div`
     font-size: 24px;
     padding: 40px;
     height: 90vh;
-    background-color: #f4f4f3;
+    background-color: #f2f2f0;
     & > p {
         color: #8f8e8f;
         font-weight: 300;
@@ -73,7 +73,7 @@ export const ContactAnchor = styled.div`
     border: 2px solid;
     text-align: center;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 300;
     padding: 10px;
     margin-top: 50px;
 `;
@@ -86,4 +86,3 @@ export const WorkButton = styled.div`
     padding: 10px;
     margin-top: 50px;
 `;
-
