@@ -1,7 +1,15 @@
 import React from 'react';
 import Img from 'gatsby-image';
 
-import { ServiceContainer, ServiceTitle, ServiceFeature, CallToAction, ServiceWrapper } from '../components/Styles/ServiceStyles';
+import {
+  ServiceContainer,
+  ServiceTitle,
+  ServiceFeature,
+  CallToAction,
+  ServiceWrapper,
+  ServiceCategory,
+  ServiceCategories,
+} from '../components/Styles/ServiceStyles';
 import { ContactAnchor } from '../components/Styles/MainStyles';
 
 const ServicePage = ({ data }) => (
@@ -12,6 +20,11 @@ const ServicePage = ({ data }) => (
         <ServiceContainer key={node.id}>
           <ServiceTitle><span>0{index + 1} </span><span>{node.title}</span></ServiceTitle>
           <p>{node.description.description}</p>
+          <ServiceCategories>
+            {node.categories.map(({ name, id }) => (
+              <ServiceCategory key={id}>{name}</ServiceCategory>
+            ))}
+          </ServiceCategories>
           <ContactAnchor count={index + 1}>Contact Us</ContactAnchor>
           <CallToAction>Explore projects</CallToAction>
         </ServiceContainer>
