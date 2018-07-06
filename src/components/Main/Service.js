@@ -27,6 +27,10 @@ export const query = graphql`
       id
       description
     }
+    categories {
+      id
+      name
+    }
     serviceFeature {
       id
       sizes ( maxWidth: 1000 ) {
