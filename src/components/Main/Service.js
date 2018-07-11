@@ -8,7 +8,7 @@ const Service = ({ service, count }) => (
   <ServiceWrapper>
     <ServiceContainer>
       <ServiceTitle><span>0{count} </span><span>{service.title}</span></ServiceTitle>
-      <p>{service.description.description}</p>
+      <p>{service.description.internal.content}</p>
       <ContactAnchor count={count}>Contact Us</ContactAnchor>
       <CallToAction>Explore projects</CallToAction>
     </ServiceContainer>
@@ -26,6 +26,11 @@ export const query = graphql`
     description {
       id
       description
+      childMarkdownRemark {
+        rawMarkdownBody
+        html 
+          
+      }
     }
     categories {
       id
