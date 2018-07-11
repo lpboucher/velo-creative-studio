@@ -4,6 +4,15 @@ import styled from 'styled-components';
 export const CallToAction = styled.p`
 `;
 
+export const ServiceIntro = styled.div`
+    background-color: white;
+    color: #8f8e8f;
+    font-weight: 300;
+    line-height: 1.5;
+    font-size: 22px;
+    padding: 40px 40% 40px 40px;
+`;
+
 export const ServiceTitle = styled.h1`
     margin: 30px 0 60px;
     text-transform: uppercase;
@@ -105,12 +114,12 @@ export const ServiceCategories = styled.div`
 
 export const ServiceCategory = styled.div`
     display: inline-block;
-    border: 1px solid;
-    border-radius: 20px;
     text-align: center;
     text-transform: uppercase;
     font-weight: 300;
-    padding: 5px;
-    margin: 5px;
     font-size: 14px;
+
+    & span {
+        padding: 0 5px;
+    }
 `;
