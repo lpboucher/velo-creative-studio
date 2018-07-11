@@ -2,17 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
+import { StyledLink } from '../Styles/HeaderStyles';
+
+export const Logo = styled.p`
+`;
+
 export const AboutContainer = styled.div`
     font-size: 24px;
     padding: 40px;
     height: 90vh;
     background-color: #f2f2f0;
-    & > p {
+    & p {
         color: #8f8e8f;
         font-weight: 300;
         line-height: 1.5;
         font-size: 22px;
         max-width: 1000px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
+    & ${Logo} {
+        margin: 0;
+        font-weight: bold;
     }
 `;
 
@@ -69,13 +81,14 @@ export const Title = styled.div`
 
 export const ContactAnchor = styled.div`
     display: inline-block;
-    width: 150px;
-    border: 2px solid;
+    border: 1px solid;
     text-align: center;
     text-transform: uppercase;
     font-weight: 300;
+    font-size: 14px;
     padding: 10px;
     margin-top: 50px;
+    margin-right: 20px;
 `;
 
 export const WorkButton = styled.div`
@@ -85,4 +98,8 @@ export const WorkButton = styled.div`
     font-weight: bold;
     padding: 10px;
     margin-top: 50px;
+
+    & > ${StyledLink} {
+        font-weight: bold;
+    }
 `;
