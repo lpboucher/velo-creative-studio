@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import Overdrive from 'react-overdrive';
 
-import { AboutContainer, WorkButton } from '../Styles/MainStyles';
+import { AboutContainer, WorkButton, Logo } from '../Styles/MainStyles';
 import { StyledLink } from '../Styles/HeaderStyles';
 
 class About extends Component {
@@ -13,10 +13,12 @@ class About extends Component {
     const { about, location } = this.props;
     return (
       <AboutContainer >
-        <Overdrive to="logoAnimation">
-          <p>velo creative studio</p>
+        <Overdrive id="logoAnimation">
+          <Logo>velo creative studio</Logo>
         </Overdrive>
-        <p>{about.body.body}</p>
+        <Overdrive id="intro">
+          <p>{about.body.body}</p>
+        </Overdrive>
         <WorkButton>
           <StyledLink to="/portfolio">
             View our work
@@ -44,6 +46,10 @@ export const query = graphql`
     body {
       id
       body
+    }
+    services {
+      id
+      services
     }
     slug
   }
