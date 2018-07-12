@@ -51,6 +51,14 @@ export const query = graphql`
       id
       services
     }
+    portfolio {
+      id
+      portfolio
+    }
+    introPage {
+      id
+      introPage
+    }
     slug
   }
 `;
