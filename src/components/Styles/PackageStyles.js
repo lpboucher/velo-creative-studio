@@ -2,8 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const PackageWrapper = styled.div`
-    padding: 40px;
+    padding: 80px;
     text-align: center;
+    background-color: #BDBEBF;
+    color: white;
+`;
+
+export const PackageContainer = styled.div`
+    border: 1px solid white;
+    padding: 40px;
 `;
 
 export const PackageTitle = styled.h1`
@@ -11,11 +18,11 @@ export const PackageTitle = styled.h1`
     font-weight: 400;
     font-size: 26px;
     padding: 20px;
+    margin-bottom: 0;
 `;
 
 export const PackageDesc = styled.p`
     font-weight: 300;
-    color: #8f8e8f;
     max-width: 80%;
     padding: 20px;
     margin: auto;
