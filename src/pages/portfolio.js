@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import Overdrive from 'react-overdrive';
 
 import ProjectBrick from '../components/Projects/ProjectBrick';
 
