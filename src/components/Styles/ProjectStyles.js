@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import Overdrive from 'react-overdrive';
 
-import { Title } from './MainStyles';
+import { Title, Intro } from './MainStyles';
+
+export const PortfolioIntro = Intro.extend`
+`;
 
 export const ProjectTitle = Title.extend`
     text-align: left;

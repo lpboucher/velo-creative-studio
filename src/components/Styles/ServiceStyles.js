@@ -1,16 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Intro, ContactAnchor } from '../Styles/MainStyles';
+
 export const CallToAction = styled.p`
 `;
 
-export const ServiceIntro = styled.div`
-    background-color: white;
-    color: #8f8e8f;
-    font-weight: 300;
-    line-height: 1.5;
-    font-size: 22px;
-    padding: 40px 40% 40px 40px;
+export const ServiceIntro = Intro.extend`
 `;
 
 export const ServiceTitle = styled.h1`
@@ -75,6 +71,11 @@ export const ServiceWrapper = styled.div`
                 &:before {
                     content: "⟵ ";
                 }
+            }
+
+            & > ${ContactAnchor} {
+                margin-right: 0;
+                margin-left: 20px;
             }
 
             & > ${ServiceTitle} {
