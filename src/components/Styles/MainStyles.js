@@ -103,3 +103,28 @@ export const WorkButton = styled.div`
         font-weight: bold;
     }
 `;
+
+export const Intro = styled.div`
+    background-color: white;
+    color: #8f8e8f;
+    font-weight: 300;
+    line-height: 1.5;
+    font-size: 22px;
+    padding: 40px 40% 40px 40px;
+`;
+
+export const InstaContainer = styled.div`
+    line-height: 0;
+    font-size: 0;
+    
+    & img {
+        width: calc(100% / 6);
+        height: calc(100vw / 6);
+        object-fit: cover;
+        margin: 0;
+    }
+
+    & a {
+        text-decoration: none;
+    }
+`;
