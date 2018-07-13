@@ -59,6 +59,25 @@ export const query = graphql`
       id
       introPage
     }
+    aboutPageTop {
+      aboutPageTop
+      id
+    }
+    aboutPageTitle
+    aboutPageProfile {
+      id
+      aboutPageProfile
+    }
+    aboutPageCollaborator {
+      id
+      aboutPageCollaborator
+    }
+    aboutPageFeature {
+      id
+      sizes ( maxWidth: 1000 ) {
+        ...GatsbyContentfulSizes
+      }
+    }
     slug
   }
 `;
