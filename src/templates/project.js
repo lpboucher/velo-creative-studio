@@ -7,22 +7,30 @@ import {
   ProjectTitle,
   ProjectDetail,
   Description,
+  ProjectMasonry,
 } from '../components/Styles/ProjectStyles';
 
 export default function Template({ data }) {
   return (
-    <ProjectWrapper>
-      <ProjectTitle>
-        <h1>{data.contentfulProject.title} | {data.contentfulProject.location}</h1>
-        <h3>{data.contentfulProject.category}</h3>
-      </ProjectTitle>
-      <ProjectDetail>
-        <Overdrive id={data.contentfulProject.id}>
-          <Img sizes={data.contentfulProject.feature.sizes} alt="" />
-        </Overdrive>
-        <Description><p>{data.contentfulProject.body.body}</p></Description>
-      </ProjectDetail>
-    </ProjectWrapper>
+    <div>
+      <ProjectWrapper>
+        <ProjectTitle>
+          <h1>{data.contentfulProject.title} | {data.contentfulProject.location}</h1>
+          <h3>{data.contentfulProject.category}</h3>
+        </ProjectTitle>
+        <ProjectDetail>
+          <Overdrive id={data.contentfulProject.id}>
+            <Img sizes={data.contentfulProject.feature.sizes} alt="" />
+          </Overdrive>
+          <Description><p>{data.contentfulProject.body.body}</p></Description>
+        </ProjectDetail>
+      </ProjectWrapper>
+      <ProjectMasonry>
+        {data.contentfulProject.previews.map(({ sizes }) => (
+          <Img sizes={sizes} alt="" />
+    ))}
+      </ProjectMasonry>
+    </div>
   );
 }
 export const projectQuery = graphql`
@@ -44,6 +52,12 @@ export const projectQuery = graphql`
                   ...GatsbyContentfulSizes
                 }
             }
+            previews {
+              id
+              sizes ( maxWidth: 1000 ) {
+                ...GatsbyContentfulSizes
+              }
+          }
         }
     }
 `;

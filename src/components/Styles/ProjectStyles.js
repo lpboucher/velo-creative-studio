@@ -27,7 +27,7 @@ export const ProjectTitle = Title.extend`
 export const ProjectWrapper = styled.div`
     text-transform: uppercase;
     text-align: center;
-    padding: 60px 40px 40px;
+    padding: 60px 40px 0px;
 
     p {
         text-transform: none;
@@ -184,7 +184,6 @@ export const ProjectMasonry = styled.div`
 `;
 
 export const ProjectDetail = styled.div`
-    padding: 40px;
     column-count: 2;
     column-gap: 0;
     display: grid;
