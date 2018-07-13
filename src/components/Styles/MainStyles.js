@@ -76,7 +76,6 @@ export const HomeWrapper = styled.div`
 export const Title = styled.div`
     text-transform: uppercase;
     font-family: georgia;
-    padding: 0 40px;
 `;
 
 export const ContactAnchor = styled.div`
