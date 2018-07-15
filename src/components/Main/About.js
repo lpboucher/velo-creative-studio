@@ -6,6 +6,7 @@ import { Transition } from 'react-transition-group';
 import Overdrive from 'react-overdrive';
 
 import { AboutContainer, WorkButton, Logo } from '../Styles/MainStyles';
+import { AboutDesc } from '../Styles/AboutStyles';
 import { StyledLink } from '../Styles/HeaderStyles';
 
 class About extends Component {
@@ -17,7 +18,10 @@ class About extends Component {
           <Logo>velo creative studio</Logo>
         </Overdrive>
         <Overdrive id="intro">
-          <p>{about.body.body}</p>
+          <AboutDesc dangerouslySetInnerHTML={{
+              __html: about.body.childMarkdownRemark.html,
+            }}
+          />
         </Overdrive>
         <WorkButton>
           <StyledLink to="/portfolio">
@@ -45,7 +49,9 @@ export const query = graphql`
     location
     body {
       id
-      body
+      childMarkdownRemark {
+        html
+      }
     }
     services {
       id

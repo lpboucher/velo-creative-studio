@@ -23,10 +23,13 @@ const ServicePage = ({ data }) => (
       </Overdrive>
     </div>
     {data.allContentfulService.edges.map(({ node }, index) => (
-      <ServiceWrapper>
+      <ServiceWrapper key={node.id}>
         <ServiceContainer key={node.id}>
           <ServiceTitle><span>0{index + 1} </span><span>{node.title}</span></ServiceTitle>
-          <p>{node.description.description}</p>
+          <p dangerouslySetInnerHTML={{
+              __html: node.description.childMarkdownRemark.html,
+            }}
+          />
           <ServiceCategories>
             {node.categories.map(({ name, id }, count, array) => (
               <ServiceCategory key={id}>{name}

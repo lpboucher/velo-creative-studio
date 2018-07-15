@@ -7,6 +7,13 @@ export const AboutIntro = Intro.extend`
     font-size: 16px;
 `;
 
+export const AboutDesc = styled.div`
+    & > p {
+        margin: 0;
+    }
+    margin: 10% 0;
+`;
+
 export const FeatureWrapper = styled.div`
     padding: 40px;
     display: flex;

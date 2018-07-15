@@ -22,7 +22,10 @@ export default function Template({ data }) {
           <Overdrive id={data.contentfulProject.id}>
             <Img sizes={data.contentfulProject.feature.sizes} alt="" />
           </Overdrive>
-          <Description><p>{data.contentfulProject.body.body}</p></Description>
+          <Description dangerouslySetInnerHTML={{
+              __html: data.contentfulProject.body.childMarkdownRemark.html,
+            }}
+          />
         </ProjectDetail>
       </ProjectWrapper>
       <ProjectMasonry>
@@ -41,6 +44,9 @@ export const projectQuery = graphql`
             body {
                 id
                 body
+                childMarkdownRemark {
+                  html 
+                }
             }
             slug
             category

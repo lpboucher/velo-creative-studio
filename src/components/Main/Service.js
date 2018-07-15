@@ -25,11 +25,8 @@ export const query = graphql`
     offering
     description {
       id
-      description
       childMarkdownRemark {
-        rawMarkdownBody
         html 
-          
       }
     }
     categories {
