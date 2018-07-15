@@ -10,7 +10,7 @@ const Header = ({ nav, location }) => (
       <Overdrive id="logoAnimation">
         <StyledLogo location={location} to="/">velo creative studio</StyledLogo>
       </Overdrive>
-      <MainNav nav={nav.allContentfulNavigation.edges} />
+      <MainNav nav={nav.edges} />
     </HeaderContainer>
   </HeaderWrapper>
 );

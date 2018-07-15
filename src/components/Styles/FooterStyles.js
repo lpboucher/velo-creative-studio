@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'gatsby-link';
 
 export const FooterWrapper = styled.div`
     display: flex;
@@ -14,10 +15,24 @@ export const FooterWrapper = styled.div`
     margin: 20px 40px 0;
 `;
 
+export const FooterLink = styled(Link)`
+color: #4a4a4a;
+text-decoration: none;
+margin-bottom: 20px;
+`;
+
 export const FooterColumn = styled.div`
     display: flex;
     
-    p {
-        padding: 0 5px;
+    & > ${FooterLink} {
+        padding: 0 0 0 5px;
+    }
+
+    & > ${FooterLink}:after {
+        content: "  |";
+    }
+
+    & > ${FooterLink}:last-child:after {
+        content: "";
     }
 `;

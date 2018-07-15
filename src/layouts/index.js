@@ -15,9 +15,9 @@ const TemplateWrapper = ({ children, data, location }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header nav={data} location={location} />
+    <Header nav={data.allContentfulNavigation} location={location} />
     {children()}
-    <Footer />
+    <Footer footer={data.allContentfulFooterItem} />
   </div>
 );
 
@@ -26,13 +26,24 @@ TemplateWrapper.propTypes = {
 };
 
 export const query = graphql`
-  query NavQuery{
+  query TemplateQuery{
     allContentfulNavigation (
       filter: {visible: {eq:true}}
+      sort: {fields:[order]}
     ) {
       edges {
         node {
           ...NavData
+        }
+      }
+    }
+    allContentfulFooterItem (
+      filter: {visible: {eq:true}}
+      sort: {fields:[order]}
+    ) {
+      edges {
+        node {
+          ...FooterData
         }
       }
     }
