@@ -64,6 +64,11 @@ export const ServiceWrapper = styled.div`
             border-color: #8f8e8f;
             font-weight: 300;
 
+            & > p:after {
+                content: "I";
+                color: white;
+            }
+
             & > ${CallToAction} {
                 float: left;
                 margin-top: 50px;
