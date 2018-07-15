@@ -1,18 +1,18 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
-import { FooterWrapper, FooterColumn, FooterLink } from '../Styles/FooterStyles';
+import { FooterWrapper, FooterColumn, FooterLink, FooterExternalLink } from '../Styles/FooterStyles';
 
 const Footer = ({ footer }) => (
   <FooterWrapper>
     <FooterColumn>
       {footer.edges.slice(0, 2).map(({ node }, count) => (
-        <FooterLink key={node.id}>{node.text}</FooterLink>
+        <FooterLink to="" key={node.id}>{node.text}</FooterLink>
     ))}
     </FooterColumn>
     <FooterColumn>
       {footer.edges.slice(2, 4).map(({ node }, count) => (
-        <FooterLink to={node.path} key={node.id}>{node.text}</FooterLink>
+        <FooterExternalLink href={node.path} key={node.id}>{node.text}</FooterExternalLink>
     ))}
     </FooterColumn>
     <FooterColumn>

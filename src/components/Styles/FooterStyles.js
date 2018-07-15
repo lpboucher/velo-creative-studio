@@ -21,18 +21,27 @@ text-decoration: none;
 margin-bottom: 20px;
 `;
 
+export const FooterExternalLink = styled.a`
+    color: #4a4a4a;
+    text-decoration: none;
+    margin-bottom: 20px;
+`;
+
 export const FooterColumn = styled.div`
     display: flex;
     
-    & > ${FooterLink} {
+    & > ${FooterLink},
+    & > ${FooterExternalLink} {
         padding: 0 0 0 5px;
     }
 
-    & > ${FooterLink}:after {
+    & > ${FooterLink}:after,
+    & > ${FooterExternalLink}:after {
         content: "  |";
     }
 
-    & > ${FooterLink}:last-child:after {
+    & > ${FooterLink}:last-child:after,
+    & > ${FooterExternalLink}:last-child:after {
         content: "";
     }
 `;
