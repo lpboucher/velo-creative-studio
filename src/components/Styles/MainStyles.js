@@ -25,6 +25,7 @@ export const AboutContainer = styled.div`
     & ${Logo} {
         margin: 0;
         font-weight: bold;
+        color: black;
     }
 `;
 
