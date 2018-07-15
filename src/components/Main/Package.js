@@ -14,6 +14,7 @@ const Package = () => (
   <PackageWrapper>
     <PackageContainer>
       <PackageTitle>Brand Kit Package</PackageTitle>
+      <hr />
       <PackageDesc>
         We deliver on the promise of entrepreneurs who are eager to brand and spread their ideas and products. This brand kit has been designed to meet the needs of startups in order to bring their ideas to life.
       </PackageDesc>

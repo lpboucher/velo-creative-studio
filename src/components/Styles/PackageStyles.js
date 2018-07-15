@@ -11,6 +11,12 @@ export const PackageWrapper = styled.div`
 export const PackageContainer = styled.div`
     border: 1px solid white;
     padding: 40px;
+
+    & > hr {
+        width: 25%;
+        margin: auto;
+        background-color: white;
+    }
 `;
 
 export const PackageTitle = styled.h1`
