@@ -32,6 +32,14 @@ export const ServiceTitle = styled.h1`
 
 export const ServiceContainer = styled.div`
     padding: 40px;
+
+    ul {
+        margin-left: 0;
+    
+        li {
+        list-style: none;
+        }
+    }
 `;
 
 export const ServiceWrapper = styled.div`
@@ -64,7 +72,7 @@ export const ServiceWrapper = styled.div`
             border-color: #8f8e8f;
             font-weight: 300;
 
-            & > p:after {
+            & > p > p:after {
                 content: "I";
                 color: white;
             }
