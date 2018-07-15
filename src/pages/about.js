@@ -9,6 +9,7 @@ import {
   AboutTitle,
   AboutProfile,
   AboutCollab,
+  AboutHeader,
 } from '../components/Styles/AboutStyles';
 
 class about extends Component {
@@ -28,9 +29,9 @@ class about extends Component {
           </SmallColumn>
         </FeatureWrapper>
         <AboutProfile>{data.contentfulAbout.aboutPageProfile.aboutPageProfile}</AboutProfile>
-        <h2>Web Development</h2>
+        <AboutHeader>Web Development</AboutHeader>
         <AboutCollab>{data.contentfulAbout.aboutPageCollaborator.aboutPageCollaborator}</AboutCollab>
-        <h2>#velocreative</h2>
+        <AboutHeader>@vero.lagarde</AboutHeader>
         <InstaContainer id={instafeedTarget}>
           <Instafeed
             limit="6"
