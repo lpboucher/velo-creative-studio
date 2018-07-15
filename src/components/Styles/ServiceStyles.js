@@ -10,7 +10,7 @@ export const ServiceIntro = Intro.extend`
 `;
 
 export const ServiceTitle = styled.h1`
-    margin: 30px 0 60px;
+    margin: 0 0 60px;
     text-transform: uppercase;
     font-size: 22px;
     letter-spacing: 1.5px;
@@ -60,7 +60,7 @@ export const ServiceWrapper = styled.div`
             background-color: white;
             direction: rtl;
             text-align: justify;
-            color: #8f8e8f;
+            color: black;
             border-color: #8f8e8f;
             font-weight: 300;
 
@@ -106,7 +106,7 @@ export const ServiceWrapper = styled.div`
 
 export const ServiceFeature = styled.div`
     display: ${props => (props.index >= 3 ? 'none' : 'block')};
-    height: 60vh;
+    height: 48vh;
 `;
 
 export const ServiceCategories = styled.div`
@@ -117,7 +117,7 @@ export const ServiceCategory = styled.div`
     display: inline-block;
     text-align: center;
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: bold;
     font-size: 14px;
 
     & span {
