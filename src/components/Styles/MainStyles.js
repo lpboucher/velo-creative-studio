@@ -13,7 +13,6 @@ export const AboutContainer = styled.div`
     height: 90vh;
     background-color: #f2f2f0;
     & p {
-        color: #8f8e8f;
         font-weight: 300;
         line-height: 1.5;
         font-size: 22px;
