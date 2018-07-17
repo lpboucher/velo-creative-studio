@@ -88,6 +88,11 @@ export const ContactAnchor = styled.div`
     padding: 10px;
     margin-top: 50px;
     margin-right: 20px;
+
+    & > a {
+        text-decoration: none;
+        color: black;
+    }
 `;
 
 export const WorkButton = styled.div`

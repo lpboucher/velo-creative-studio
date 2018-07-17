@@ -1,6 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import Overdrive from 'react-overdrive';
+import Link from 'gatsby-link';
 
 import Package from '../components/Main/Package';
 
@@ -39,8 +40,8 @@ const ServicePage = ({ data }) => (
               </ServiceCategory>
             ))}
           </ServiceCategories>
-          <ContactAnchor count={index + 1}>Contact Us</ContactAnchor>
-          <ContactAnchor count={index + 1}>Explore projects</ContactAnchor>
+          <ContactAnchor count={index + 1}><Link to="/contact">Contact Us</Link></ContactAnchor>
+          <ContactAnchor count={index + 1}><Link to="/portfolio">Explore projects</Link></ContactAnchor>
         </ServiceContainer>
         <ServiceFeature title={node.title} index={index + 1} >
           <Img sizes={node.serviceFeature.sizes} alt="" />
