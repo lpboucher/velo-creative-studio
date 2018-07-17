@@ -6,6 +6,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 import './index.css';
 
+import logo from '../images/favicon.ico';
+
 const TemplateWrapper = ({ children, data, location }) => (
   <div>
     <Helmet
@@ -14,6 +16,9 @@ const TemplateWrapper = ({ children, data, location }) => (
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
       ]}
+      link={[
+        { rel: 'shortcut icon', type: 'image/png', href: `${logo}` },
+    ]}
     />
     <Header nav={data.allContentfulNavigation} location={location} />
     {children()}
