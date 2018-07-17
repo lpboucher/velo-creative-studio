@@ -25,7 +25,7 @@ const Package = () => (
         <li>Website</li>
       </PackageList>
       <p>Duration: 10 weeks</p>
-      <PackageAdd>Additional items can be added to the package such as business cards, branded collateral, presentations, brochures</PackageAdd>
+      <PackageAdd>Additional items can be added to the package such as business cards, branded collateral, presentations, brochures.</PackageAdd>
     </PackageContainer>
   </PackageWrapper>
 );
