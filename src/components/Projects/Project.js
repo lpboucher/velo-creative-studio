@@ -16,7 +16,7 @@ import {
 const Project = ({ project, count }) => (
   <ProjectContainer>
     <LargeColumn>
-      <Img sizes={project.feature.sizes} alt="" />
+      <Img sizes={project.feature.sizes} alt={project.feature.description} />
     </LargeColumn>
     <SmallColumn>
       <TitleBox count={count}>
@@ -43,6 +43,7 @@ export const query = graphql`
     feature {
       id
       title
+      description
       sizes ( maxWidth: 1000 ) {
         ...GatsbyContentfulSizes
       }

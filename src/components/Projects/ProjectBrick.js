@@ -9,7 +9,7 @@ const ProjectBrick = ({ brick }) => (
   <div>
     <Overdrive id={brick.id}>
       <Link to={brick.slug}>
-        <Img sizes={brick.feature.sizes} alt="" />
+        <Img sizes={brick.feature.sizes} alt={brick.feature.description} />
       </Link>
     </Overdrive>
     <ProjectOverlay>{brick.title}</ProjectOverlay>
@@ -29,6 +29,7 @@ export const query = graphql`
     feature {
       id
       title
+      description
       sizes ( maxWidth: 1000 ) {
         ...GatsbyContentfulSizes
       }

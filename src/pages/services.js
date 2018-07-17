@@ -44,7 +44,7 @@ const ServicePage = ({ data }) => (
           <ContactAnchor count={index + 1}><Link to="/portfolio">Explore projects</Link></ContactAnchor>
         </ServiceContainer>
         <ServiceFeature title={node.title} index={index + 1} >
-          <Img sizes={node.serviceFeature.sizes} alt="" />
+          <Img sizes={node.serviceFeature.sizes} alt={node.serviceFeature.description} />
         </ServiceFeature>
       </ServiceWrapper>
     ))}

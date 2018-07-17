@@ -80,6 +80,7 @@ export const query = graphql`
     }
     aboutPageFeature {
       id
+      description
       sizes ( maxWidth: 1000 ) {
         ...GatsbyContentfulSizes
       }

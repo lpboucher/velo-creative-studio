@@ -29,8 +29,8 @@ export default function Template({ data }) {
         </ProjectDetail>
       </ProjectWrapper>
       <ProjectMasonry>
-        {data.contentfulProject.previews.map(({ sizes }) => (
-          <Img sizes={sizes} alt="" />
+        {data.contentfulProject.previews.map(({ sizes, description }) => (
+          <Img sizes={sizes} alt={description} />
     ))}
       </ProjectMasonry>
     </div>
@@ -60,6 +60,7 @@ export const projectQuery = graphql`
             }
             previews {
               id
+              description
               sizes ( maxWidth: 1000 ) {
                 ...GatsbyContentfulSizes
               }

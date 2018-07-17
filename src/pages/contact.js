@@ -19,7 +19,7 @@ const contactPage = ({ data }) => (
       <Form />
     </TwoColumn>
     <TwoColumn>
-      <Img sizes={data.contentfulAbout.featureImage.sizes} alt="" />
+      <Img sizes={data.contentfulAbout.featureImage.sizes} alt={data.contentfulAbout.featureImage.description} />
     </TwoColumn>
   </ContactWrapper>
 );
@@ -38,6 +38,7 @@ query contactPage {
       featureImage {
         id
         title
+        description
         sizes ( maxWidth: 1000 ) {
           ...GatsbyContentfulSizes
         }

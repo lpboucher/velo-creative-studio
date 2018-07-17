@@ -35,6 +35,7 @@ export const query = graphql`
     }
     serviceFeature {
       id
+      description
       sizes ( maxWidth: 1000 ) {
         ...GatsbyContentfulSizes
       }

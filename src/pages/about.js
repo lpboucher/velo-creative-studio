@@ -22,7 +22,7 @@ class about extends Component {
         <AboutIntro>{data.contentfulAbout.aboutPageTop.aboutPageTop}</AboutIntro>
         <FeatureWrapper>
           <LargeColumn>
-            <Img sizes={data.contentfulAbout.aboutPageFeature.sizes} alt="" />
+            <Img sizes={data.contentfulAbout.aboutPageFeature.sizes} alt={data.contentfulAbout.aboutPageFeature.description} />
           </LargeColumn>
           <SmallColumn>
             <AboutTitle>{data.contentfulAbout.aboutPageTitle}</AboutTitle>
