@@ -1,6 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import Overdrive from 'react-overdrive';
+import Helmet from 'react-helmet';
 
 import {
   ProjectWrapper,
@@ -13,6 +14,12 @@ import {
 export default function Template({ data }) {
   return (
     <div>
+      <Helmet
+        title={data.contentfulProject.seoTitle}
+        meta={[
+        { name: 'description', content: data.contentfulProject.seoDescription.seoDescription },
+      ]}
+      />
       <ProjectWrapper>
         <ProjectTitle>
           <h1>{data.contentfulProject.title} | {data.contentfulProject.location}</h1>
@@ -29,8 +36,8 @@ export default function Template({ data }) {
         </ProjectDetail>
       </ProjectWrapper>
       <ProjectMasonry>
-        {data.contentfulProject.previews.map(({ sizes, description }) => (
-          <Img sizes={sizes} alt={description} />
+        {data.contentfulProject.previews.map(({ sizes, description, id }) => (
+          <Img key={id} sizes={sizes} alt={description} />
     ))}
       </ProjectMasonry>
     </div>
@@ -64,7 +71,11 @@ export const projectQuery = graphql`
               sizes ( maxWidth: 1000 ) {
                 ...GatsbyContentfulSizes
               }
-          }
+            }
+            seoTitle
+            seoDescription {
+              seoDescription
+            }
         }
     }
 `;

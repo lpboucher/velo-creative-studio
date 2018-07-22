@@ -40,6 +40,11 @@ export const query = graphql`
     }
     contentfulAbout {
       ...AboutData
+      seoTitle
+      seoKeywords
+      seoDescription {
+      seoDescription
+      }
     }
     allContentfulService (
       sort: {fields:[orderHome]}

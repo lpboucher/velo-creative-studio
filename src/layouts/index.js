@@ -11,10 +11,9 @@ import logo from '../images/favicon.ico';
 const TemplateWrapper = ({ children, data, location }) => (
   <div>
     <Helmet
-      title="Velo Creative Studio."
+      title={data.contentfulAbout.seoTitle}
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: data.contentfulAbout.seoDescription.seoDescription },
       ]}
       link={[
         { rel: 'shortcut icon', type: 'image/png', href: `${logo}` },
@@ -50,6 +49,12 @@ export const query = graphql`
         node {
           ...FooterData
         }
+      }
+    }
+    contentfulAbout {
+      seoTitle
+      seoDescription {
+      seoDescription
       }
     }
   }
