@@ -8,7 +8,7 @@ import { ProjectOverlay } from '../Styles/ProjectStyles';
 const ProjectBrick = ({ brick }) => (
   <div>
     <Overdrive id={brick.id}>
-      <Link to={brick.slug}>
+      <Link to={brick.isClickable ? brick.slug : ''}>
         <Img sizes={brick.feature.sizes} alt={brick.feature.description} />
       </Link>
     </Overdrive>
@@ -34,6 +34,7 @@ export const query = graphql`
         ...GatsbyContentfulSizes
       }
     }
+    isClickable
   }
 `;
 

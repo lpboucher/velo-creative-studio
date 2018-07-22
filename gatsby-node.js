@@ -6,7 +6,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   return new Promise((resolve, reject) => {
     graphql(`
         {
-            allContentfulProject {
+            allContentfulProject
+            (filter: {isClickable: {eq: true}}) {
                 edges {
                   node {
                     slug
