@@ -98,7 +98,8 @@ export const Description = styled.div`
     text-align: justify;
 
     p {
-        font-family: georgia;
+        font-family: niveau-grotesk;
+        font-weight: 200;
         font-size: 14px;
         padding-right: 40px;
     }

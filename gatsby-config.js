@@ -43,11 +43,14 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-fonts',
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        fonts: [
-          'Lato:300,400,700',
-        ],
+        google: {
+          families: ['Lato:300,400,700'],
+        },
+        typekit: {
+          id: 'ajg3fch',
+        },
       },
     },
   ],
