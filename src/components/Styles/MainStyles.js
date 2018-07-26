@@ -25,6 +25,10 @@ export const AboutContainer = styled.div`
         font-weight: bold;
         color: black;
     }
+
+    @media (max-width: 500px) {
+        text-align: center;
+    }
 `;
 
 export const ActionBox = styled.div`
@@ -53,6 +57,16 @@ export const ActionBox = styled.div`
 
 export const TwoColumn = styled.div`
     width: 50%;
+
+    @media (max-width: 1100px) {
+        &:nth-child(1) {
+                width: 100%;
+        }
+        
+        &:nth-child(2) {
+                display:none;
+        }
+    }
 `;
 
 export const LargeColumn = styled.div`
