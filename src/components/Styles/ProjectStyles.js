@@ -103,6 +103,10 @@ export const Description = styled.div`
         font-size: 14px;
         padding-right: 40px;
     }
+
+    @media (max-width: 900px) {
+        text-align: center;
+    }
 `;
 
 export const ProjectOverlay = styled.div`
@@ -133,7 +137,7 @@ export const ProjectMasonry = styled.div`
 
         & > * {
             height: 100%;
-            }
+        }
 
         &:hover .gatsby-image-outer-wrapper {
             opacity: 0.5;
@@ -141,52 +145,90 @@ export const ProjectMasonry = styled.div`
         &:hover ${ProjectOverlay} {
             display: block;
         }
-
+        
         &:nth-child(1) {
             grid-row: span 2;
             grid-column: 1 / span 1;
+
+            @media (max-width: 900px) {
+                grid-row: span 1;
+                grid-column: span 2;
+            }
         }
 
         &:nth-child(2) {
             grid-row: span 1;
             grid-column: 2 / span 1;
+
+            @media (max-width: 900px) {
+                grid-row: span 1;
+                grid-column: span 2;
+            }
         }
 
         &:nth-child(3) {
             grid-row: span 1;
             grid-column: 2 / span 1;
+
+            @media (max-width: 900px) {
+                grid-row: span 1;
+                grid-column: span 2;
+            }
         }
 
         &:nth-child(4) {
             grid-row: span 1;
             grid-column: 1 / span 1;
+
+            @media (max-width: 900px) {
+                grid-row: span 1;
+                grid-column: span 2;
+            }
         }
 
         &:nth-child(5) {
             grid-row: span 1;
             grid-column: 2 / span 1;
+
+            @media (max-width: 900px) {
+                grid-row: span 1;
+                grid-column: span 2;
+            }
         }
 
         &:nth-child(6) {
             grid-row: span 1;
             grid-column: 1 / span 1;
+
+            @media (max-width: 900px) {
+                grid-row: span 1;
+                grid-column: span 2;
+            }
         }
 
         &:nth-child(8) {
             grid-row: span 1;
             grid-column: 1 / span 1;
+
+            @media (max-width: 900px) {
+                grid-row: span 1;
+                grid-column: span 2;
+            }
         }
 
         &:nth-child(7) {
             grid-row: span 2;
             grid-column: 2 / span 1;
+
+            @media (max-width: 900px) {
+                grid-row: span 1;
+                grid-column: span 2;
+            }
         }
     }
 `;
 
 export const ProjectDetail = styled.div`
-    column-count: 2;
-    column-gap: 0;
     display: grid;
     grid-auto-rows: 300px;
     grid-gap: 40px;
@@ -200,15 +242,28 @@ export const ProjectDetail = styled.div`
 
         &:nth-child(1) {
             grid-row: span 1;
-            grid-column: 1 / span 1;
+            grid-column: 2 / span 1;
+            order: 2;
+
+            @media (max-width: 900px) {
+                grid-column: 1 / span 2;
+                order: 1;
+                text-align: left;
+            }
         }
 
         &:nth-child(2) {
             grid-row: span 1;
-            grid-column: 2 / span 1;
+            grid-column: 1 / span 1;
+            order: 1;
+
+            @media (max-width: 900px) {
+                grid-column: 1 / span 2;
+                order: 2;
+            }
         }
 
-        &:nth-child(3) {
+     /*   &:nth-child(3) {
             grid-row: span 1;
             grid-column: 2 / span 1;
         }
@@ -237,5 +292,5 @@ export const ProjectDetail = styled.div`
             grid-row: span 2;
             grid-column: 2 / span 1;
         }
-    }
+    } */
 `;

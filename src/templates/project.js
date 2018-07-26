@@ -26,13 +26,13 @@ export default function Template({ data }) {
           <h3>{data.contentfulProject.category}</h3>
         </ProjectTitle>
         <ProjectDetail>
-          <Overdrive id={data.contentfulProject.id}>
-            <Img sizes={data.contentfulProject.feature.sizes} alt="" />
-          </Overdrive>
           <Description dangerouslySetInnerHTML={{
               __html: data.contentfulProject.body.childMarkdownRemark.html,
             }}
           />
+          <Overdrive id={data.contentfulProject.id}>
+            <Img sizes={data.contentfulProject.feature.sizes} alt="" />
+          </Overdrive>
         </ProjectDetail>
       </ProjectWrapper>
       <ProjectMasonry>
