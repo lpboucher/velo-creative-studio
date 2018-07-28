@@ -26,6 +26,34 @@ export const StyledNavList = styled.ul`
   list-style: none;
   display: flex;
   margin: 0;
+
+  @media (max-width: 900px) {
+        display: none;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        background-color: #f2f2f0;
+        padding: 20px 40px;
+        z-index: 5;
+    }
+`;
+
+export const MobileIcon = styled.a`
+  display: none;
+  color: black;
+  text-decoration: none;
+  font-size: 24px;
+
+  @media (max-width: 900px) {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+
+    &:hover + ${StyledNavList},
+    &:active + ${StyledNavList} {
+      display: block;
+    }
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -50,5 +78,11 @@ export const StyledNavItem = styled.li`
   & > ${StyledLink} {
     text-transform: uppercase;
     font-size: 13px;
+  }
+
+  @media (max-width: 900px) {
+    width: 100%;
+    padding: 1% 0;
+    margin: 0;
   }
 `;
