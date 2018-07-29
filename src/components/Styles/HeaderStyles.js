@@ -28,7 +28,7 @@ export const StyledNavList = styled.ul`
   margin: 0;
 
   @media (max-width: 900px) {
-        display: none;
+        display: ${props => (props.hide === false ? 'block' : 'none')};
         width: 100%;
         position: absolute;
         left: 0;
@@ -49,10 +49,7 @@ export const MobileIcon = styled.a`
     width: 100%;
     text-align: right;
 
-    &:hover + ${StyledNavList},
-    &:active + ${StyledNavList} {
-      display: block;
-    }
+    
   }
 `;
 
