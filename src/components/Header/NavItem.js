@@ -4,9 +4,9 @@ import Link from 'gatsby-link';
 
 import { StyledNavItem, StyledLink } from '../Styles/HeaderStyles';
 
-const NavItem = ({ item }) => (
+const NavItem = ({ item, reset }) => (
   <StyledNavItem>
-    <StyledLink to={item.path}>{item.text}</StyledLink>
+    <StyledLink to={item.path} onClick={reset}>{item.text}</StyledLink>
   </StyledNavItem>
 );
 
