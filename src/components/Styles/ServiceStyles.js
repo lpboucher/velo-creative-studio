@@ -27,6 +27,10 @@ export const ServiceTitle = styled.h1`
 
     & + p {
         width: 80%;
+
+        @media (max-width: 900px) {
+            width: 100%;
+        }
     }
 `;
 
@@ -50,6 +54,10 @@ export const ServiceWrapper = styled.div`
             color: black;
             border-color: black;
             font-weight: 300;
+
+            @media (max-width: 600px) {
+                text-align: left;
+            }
             
 
             & > ${CallToAction} {
