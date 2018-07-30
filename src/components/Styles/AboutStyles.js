@@ -15,6 +15,10 @@ export const AboutDesc = styled.div`
         margin-bottom: 40px;
     }
     margin: 10% 0;
+
+    @media (max-width: 500px) {
+        margin: 20% 0;
+    }
 `;
 
 export const FeatureWrapper = styled.div`
