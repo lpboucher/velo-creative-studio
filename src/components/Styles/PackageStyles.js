@@ -6,11 +6,19 @@ export const PackageWrapper = styled.div`
     text-align: center;
     background-color: #BDBEBF;
     color: white;
+
+    @media (max-width: 600px) {
+        padding: 0;
+    }
 `;
 
 export const PackageContainer = styled.div`
     border: 1px solid white;
     padding: 40px;
+
+    @media (max-width: 600px) {
+        padding: 0;
+    }
 
     & > hr {
         width: 25%;
