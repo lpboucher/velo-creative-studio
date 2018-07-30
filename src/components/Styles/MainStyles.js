@@ -128,6 +128,10 @@ export const Intro = styled.div`
     line-height: 1.5;
     font-size: 22px;
     padding: 40px 40% 40px 40px;
+
+    @media (max-width: 900px) {
+        padding-right: 20%;
+    }
 `;
 
 export const InstaContainer = styled.div`
@@ -139,6 +143,16 @@ export const InstaContainer = styled.div`
         height: calc(100vw / 6);
         object-fit: cover;
         margin: 0;
+
+        @media (max-width: 900px) {
+            width: calc(100% / 3);
+            height: calc(100vw / 3);
+        }
+
+        @media (max-width: 600px) {
+            width: calc(100% / 2);
+            height: calc(100vw / 2);
+        }
     }
 
     & a {
