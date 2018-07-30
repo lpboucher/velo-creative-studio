@@ -102,10 +102,20 @@ export const Description = styled.div`
         font-weight: 200;
         font-size: 14px;
         padding-right: 40px;
+
+        & > a {
+            text-decoration: none;
+            color: black;
+            font-style: italic; 
+        }
+    }
+    @media (max-width: 1200px) {
+        line-height: 20px;
     }
 
     @media (max-width: 900px) {
         text-align: center;
+        line-height: 1.45em;
     }
 `;
 
@@ -260,6 +270,7 @@ export const ProjectDetail = styled.div`
             @media (max-width: 900px) {
                 grid-column: 1 / span 2;
                 order: 2;
+                margin-top: -10%;
             }
         }
 
