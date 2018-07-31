@@ -5,6 +5,7 @@ import { Intro } from '../Styles/MainStyles';
 
 export const AboutIntro = Intro.extend`
     font-size: 16px;
+    text-align: justify;
 `;
 
 export const AboutDesc = styled.div`
@@ -42,11 +43,13 @@ export const AboutTitle = styled.div`
 export const AboutProfile = Intro.extend`
     padding-right: 40px;
     font-size: 16px;
+    text-align: justify;
 `;
 
 export const AboutCollab = Intro.extend`
     padding-right: 40px;
     font-size: 16px;
+    text-align: justify;
 `;
 
 export const AboutHeader = styled.h2`
