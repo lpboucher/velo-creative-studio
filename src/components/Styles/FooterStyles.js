@@ -6,6 +6,7 @@ export const FooterWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     font-size: 12px;
     text-transform: uppercase;
@@ -29,6 +30,10 @@ export const FooterExternalLink = styled.a`
 
 export const FooterColumn = styled.div`
     display: flex;
+
+    @media (max-width: 900px) {
+        margin: auto;
+    }
     
     & > ${FooterLink},
     & > ${FooterExternalLink} {
