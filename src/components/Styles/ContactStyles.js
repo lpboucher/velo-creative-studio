@@ -21,6 +21,7 @@ export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 100%;
 
     font-size: 14px;
@@ -36,6 +37,7 @@ export const InfoWrapper = styled.div`
 
 export const InfoColumn = styled.div`
     display: flex;
+    padding: 0 10px;
     
     & > p {
         margin-bottom: 0;
