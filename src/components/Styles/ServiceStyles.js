@@ -80,6 +80,10 @@ export const ServiceWrapper = styled.div`
             border-color: #8f8e8f;
             font-weight: 300;
 
+            @media (max-width: 600px) {
+                direction: initial;
+            }
+
             & > p > p:after {
                 content: "I";
                 color: white;
@@ -97,7 +101,12 @@ export const ServiceWrapper = styled.div`
             & > ${ContactAnchor} {
                 margin-right: 0;
                 margin-left: 20px;
-            }
+
+                @media (max-width: 600px) {
+                    margin-left: 0;
+                    margin-right: 20px;
+                }
+             }
 
             & > ${ServiceTitle} {
                 
