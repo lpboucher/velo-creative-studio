@@ -8,7 +8,7 @@ export const PackageWrapper = styled.div`
     color: white;
 
     @media (max-width: 600px) {
-        padding: 0;
+        padding: 20px 0;
     }
 `;
 
@@ -18,12 +18,14 @@ export const PackageContainer = styled.div`
 
     @media (max-width: 600px) {
         padding: 0;
+        border: none;
     }
 
     & > hr {
         width: 25%;
         margin: auto;
         background-color: white;
+
     }
 `;
 
