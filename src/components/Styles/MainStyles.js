@@ -119,6 +119,10 @@ export const WorkButton = styled.div`
     & > ${StyledLink} {
         font-weight: bold;
     }
+
+    @media (max-width: 600px) {
+        margin-top: 0;
+    }
 `;
 
 export const Intro = styled.div`
@@ -131,6 +135,10 @@ export const Intro = styled.div`
 
     @media (max-width: 900px) {
         padding-right: 20%;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 14px;
     }
 `;
 
