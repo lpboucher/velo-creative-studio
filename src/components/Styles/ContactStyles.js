@@ -37,7 +37,7 @@ export const InfoWrapper = styled.div`
 
 export const InfoColumn = styled.div`
     display: flex;
-    padding: 0 10px;
+    padding: 0 20px 0 0;
     
     & > p {
         margin-bottom: 0;
