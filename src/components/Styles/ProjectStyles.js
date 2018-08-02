@@ -108,6 +108,10 @@ export const Description = styled.div`
             color: black;
             font-style: italic; 
         }
+
+        @media (max-width: 600px) {
+            padding-right: 0;
+    }
     }
     @media (max-width: 1200px) {
         line-height: 20px;
@@ -116,6 +120,10 @@ export const Description = styled.div`
     @media (max-width: 900px) {
         text-align: center;
         line-height: 1.45em;
+    }
+
+    @media (max-width: 600px) {
+        line-height: 16px;
     }
 `;
 
