@@ -38,6 +38,10 @@ export const AboutTitle = styled.div`
     font-weight: 300;
     line-height: 1.5;
     padding-right: 20px;
+
+    @media (max-width: 600px) {
+        top: 20%;
+    }
 `;
 
 export const AboutProfile = Intro.extend`
