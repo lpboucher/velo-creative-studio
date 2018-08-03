@@ -10,6 +10,7 @@ import {
   AboutProfile,
   AboutCollab,
   AboutHeader,
+  Testimonial,
 } from '../components/Styles/AboutStyles';
 
 class about extends Component {
@@ -31,6 +32,11 @@ class about extends Component {
         <AboutProfile>{data.contentfulAbout.aboutPageProfile.aboutPageProfile}</AboutProfile>
         <AboutHeader>Web Development</AboutHeader>
         <AboutCollab>{data.contentfulAbout.aboutPageCollaborator.aboutPageCollaborator}</AboutCollab>
+        <Testimonial>
+          {data.contentfulAbout.testimonials.map((testimonial, index) => (
+            <p key={index}>{testimonial}</p>
+          ))}
+        </Testimonial>
         <AboutHeader>@vero.lagarde</AboutHeader>
         <InstaContainer id={instafeedTarget}>
           <Instafeed

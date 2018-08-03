@@ -64,3 +64,11 @@ export const AboutHeader = styled.h2`
         margin-bottom: 0;
     }
 `;
+
+export const Testimonial = styled.div`
+    padding: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #fafafa;
+`;
