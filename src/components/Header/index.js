@@ -31,7 +31,7 @@ class Header extends Component {
       <HeaderWrapper>
         <HeaderContainer>
           <Overdrive id="logoAnimation">
-            <StyledLogo location={location} onClick={this.resetHidden} to="/">velo creative studio</StyledLogo>
+            <StyledLogo location={this.props.location} onClick={this.resetHidden} to="/">velo creative studio</StyledLogo>
           </Overdrive>
           <MainNav
             nav={this.props.nav.edges}
