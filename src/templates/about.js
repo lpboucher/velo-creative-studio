@@ -60,8 +60,8 @@ class about extends Component {
 }
 
 export const query = graphql`
-query AboutPage {
-  contentfulAbout {
+query AboutPageTest($locale: String!) {
+  contentfulAbout(node_locale: { eq: $locale }) {
     ...AboutData
   }
 }

@@ -53,8 +53,9 @@ const ServicePage = ({ data }) => (
 );
 
 export const query = graphql`
-query ServicePage {
+query ServicePageTest($locale: String!) {
   allContentfulService (
+    filter: {node_locale: { eq: $locale }}
     sort: {fields:[orderHome]}
   ) {
     edges {
@@ -63,7 +64,7 @@ query ServicePage {
       }
     }
   }
-  contentfulAbout {
+  contentfulAbout (node_locale: { eq: $locale }) {
     ...AboutData
   }
 }

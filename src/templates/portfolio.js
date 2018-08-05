@@ -5,20 +5,21 @@ import ProjectBrick from '../components/Projects/ProjectBrick';
 
 import { ProjectMasonry, PortfolioIntro } from '../components/Styles/ProjectStyles';
 
-const PortfolioPage = ({ data }) => (
+const PortfolioPage = ({ data, pathContext }) => (
   <div>
     <PortfolioIntro>{data.contentfulAbout.portfolio.portfolio}</PortfolioIntro>
     <ProjectMasonry>
       {data.allContentfulProject.edges.map(({ node }) => (
-        <ProjectBrick key={node.id} brick={node} />
+        <ProjectBrick key={node.id} brick={node} locale={pathContext.locale} />
     ))}
     </ProjectMasonry>
   </div>
 );
 
 export const query = graphql`
-  query PortfolioPage {
+  query PortfolioPageTest($locale: String!) {
     allContentfulProject (
+      filter: {node_locale: { eq: $locale }}
       sort: {fields:[orderPortfolio]}
     ) {
       edges {
@@ -27,7 +28,7 @@ export const query = graphql`
         }
       }
     }
-    contentfulAbout {
+    contentfulAbout (node_locale: { eq: $locale }) {
       ...AboutData
     }
   }
