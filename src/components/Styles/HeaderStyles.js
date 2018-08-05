@@ -66,7 +66,10 @@ text-decoration: none;
 font-size: 16px;
 font-weight: 300;
 letter-spacing: 2px;
-color: ${props => (props.location.pathname === '/' ? '#f4f4f3' : '#4a4a4a')};
+color: ${props => (props.location.pathname === '/en-US' ||
+                  props.location.pathname === '/en-US/' ||
+                  props.location.pathname === '/fr' ||
+                  props.location.pathname === '/fr/' ? '#f4f4f3' : '#4a4a4a')};
 `;
 
 export const StyledNavItem = styled.li`
@@ -81,5 +84,23 @@ export const StyledNavItem = styled.li`
     width: 100%;
     padding: 1% 0;
     margin: 0;
+  }
+`;
+
+export const LanguageSelect = styled.ul`
+  list-style: none;
+  display: flex;
+  margin: 0;
+
+  & > a {
+    color: #4a4a4a;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 2px;
+
+    & > li {
+      margin: 0 20px;
+    }
   }
 `;

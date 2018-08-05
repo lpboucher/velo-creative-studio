@@ -4,9 +4,9 @@ import Link from 'gatsby-link';
 
 import { StyledNavItem, StyledLink } from '../Styles/HeaderStyles';
 
-const NavItem = ({ item, reset }) => (
+const NavItem = ({ item, reset, locale }) => (
   <StyledNavItem>
-    <StyledLink to={item.path} onClick={reset}>{item.text}</StyledLink>
+    <StyledLink to={`/${locale}${item.path}`} onClick={reset}>{item.text}</StyledLink>
   </StyledNavItem>
 );
 
@@ -17,6 +17,7 @@ export const query = graphql`
     path
     order
     visible
+    node_locale
   }
 `;
 

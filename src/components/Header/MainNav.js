@@ -6,13 +6,20 @@ import { StyledNavList, MobileIcon } from '../Styles/HeaderStyles';
 import NavItem from './NavItem';
 
 const MainNav = ({
-  nav, toggleHidden, isHidden, resetHidden,
+  nav,
+  toggleHidden,
+  isHidden,
+  resetHidden,
+  locale,
 }) => (
   <nav>
     <MobileIcon href="#" onClick={toggleHidden}>☰</MobileIcon>
     <StyledNavList hide={isHidden}>
       {nav.map(({ node }) => (
-        <NavItem key={node.id} item={node} reset={resetHidden} />
+         node.node_locale === locale ?
+           <NavItem key={node.id} item={node} reset={resetHidden} locale={locale} />
+          :
+          null
     ))}
     </StyledNavList>
   </nav>

@@ -1,37 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
-import { Transition } from 'react-transition-group';
 import Overdrive from 'react-overdrive';
 
 import { AboutContainer, WorkButton, Logo } from '../Styles/MainStyles';
 import { AboutDesc } from '../Styles/AboutStyles';
 import { StyledLink } from '../Styles/HeaderStyles';
 
-class About extends Component {
-  render() {
-    const { about, location } = this.props;
-    return (
-      <AboutContainer >
-        <Overdrive id="logoAnimation">
-          <Logo>velo creative studio</Logo>
-        </Overdrive>
-        <Overdrive id="intro">
-          <AboutDesc dangerouslySetInnerHTML={{
+const About = ({ about, location, locale }) => (
+  <AboutContainer >
+    <Overdrive id="logoAnimation">
+      <Logo>velo creative studio</Logo>
+    </Overdrive>
+    <Overdrive id="intro">
+      <AboutDesc dangerouslySetInnerHTML={{
               __html: about.body.childMarkdownRemark.html,
             }}
-          />
-        </Overdrive>
-        <WorkButton>
-          <StyledLink to="/portfolio">
+      />
+    </Overdrive>
+    <WorkButton>
+      <StyledLink to={`/${locale}/portfolio`}>
             View our work
-          </StyledLink>
-        </WorkButton>
-      </AboutContainer>
-    );
-  }
-}
+      </StyledLink>
+    </WorkButton>
+  </AboutContainer>
+);
 
 About.propTypes = {
   about: PropTypes.shape({
@@ -40,7 +34,6 @@ About.propTypes = {
     body: PropTypes.shape({ body: PropTypes.string }),
   }).isRequired,
 };
-
 
 export const query = graphql`
   fragment AboutData on ContentfulAbout {
@@ -87,7 +80,9 @@ export const query = graphql`
     }
     slug
     testimonials
+    node_locale
   }
 `;
 
 export default About;
+

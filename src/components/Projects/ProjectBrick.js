@@ -5,16 +5,19 @@ import Overdrive from 'react-overdrive';
 
 import { ProjectOverlay } from '../Styles/ProjectStyles';
 
-const ProjectBrick = ({ brick }) => (
-  <div>
-    <Overdrive id={brick.id}>
-      <Link to={`/${brick.isClickable ? brick.slug : ''}`}>
-        <Img sizes={brick.feature.sizes} alt={brick.feature.description} />
-      </Link>
-    </Overdrive>
-    <ProjectOverlay>{brick.title}</ProjectOverlay>
-  </div>
-);
+const ProjectBrick = ({ brick, locale }) => {
+  const path = `/${locale}/portfolio/${brick.slug}`;
+  return (
+    <div>
+      <Overdrive id={brick.id}>
+        <Link to={`${brick.isClickable ? path : ''}`}>
+          <Img sizes={brick.feature.sizes} alt={brick.feature.description} />
+        </Link>
+      </Overdrive>
+      <ProjectOverlay>{brick.title}</ProjectOverlay>
+    </div>
+  );
+};
 
 export const query = graphql`
   fragment ProjectGridData on ContentfulProject {

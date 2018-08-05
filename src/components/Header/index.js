@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Overdrive from 'react-overdrive';
 
 import { HeaderWrapper, HeaderContainer, StyledLogo } from '../Styles/HeaderStyles';
+import SelectLanguage from './SelectLanguage';
 import MainNav from './MainNav';
 
 class Header extends Component {
@@ -31,13 +32,15 @@ class Header extends Component {
       <HeaderWrapper>
         <HeaderContainer>
           <Overdrive id="logoAnimation">
-            <StyledLogo location={this.props.location} onClick={this.resetHidden} to="/">velo creative studio</StyledLogo>
+            <StyledLogo location={this.props.location} onClick={this.resetHidden} to={`/${this.props.locale}`}>velo creative studio</StyledLogo>
           </Overdrive>
+          <SelectLanguage langs={this.props.langs} />
           <MainNav
             nav={this.props.nav.edges}
             toggleHidden={this.toggleHidden}
             isHidden={this.state.isHidden}
             resetHidden={this.resetHidden}
+            locale={this.props.locale}
           />
         </HeaderContainer>
       </HeaderWrapper>
