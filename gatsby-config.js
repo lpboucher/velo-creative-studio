@@ -1,11 +1,14 @@
+const languages = require('./src/data/languages');
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
+
 
 module.exports = {
   siteMetadata: {
     title: 'Velo Creative Studio.',
     desc: 'Velo Creative Studio is a marketing agency based in Amsterdam.',
+    languages,
   },
   plugins: ['gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
@@ -35,6 +38,14 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyForNull: 'any',
+        langKeyDefault: languages.defaultLangKey,
+        useLangKeyLayout: false,
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: {
