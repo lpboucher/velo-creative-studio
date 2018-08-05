@@ -1,30 +1,67 @@
 const path = require('path');
+const languages = require('./src/data/languages');
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
-  return new Promise((resolve, reject) => {
+  const locales = languages.langs;
+
+  locales.forEach((locale) => {
+    const prefix = locale;
+    createPage({
+      path: `/${prefix}`,
+      component: path.resolve('./src/templates/index.js'),
+      context: { locale },
+    });
+  });
+
+  Promise.all(locales.map((locale) => {
     graphql(`
         {
-            allContentfulProject
-            (filter: {isClickable: {eq: true}}) {
-                edges {
-                  node {
-                    slug
-                  }
-                }
+          about: contentfulAbout(node_locale: { eq: "${locale}" }) {
+            node_locale
+          }
+          contact: contentfulAbout(node_locale: { eq: "${locale}" }) {
+            node_locale
+          }
+          portfolio: contentfulAbout(node_locale: { eq: "${locale}" }) {
+            node_locale
+          }
+          services: contentfulAbout(node_locale: { eq: "${locale}" }) {
+            node_locale
+          }
+          projects: allContentfulProject(filter: {node_locale: { eq: "${locale}" } }) {
+            edges {
+              node {
+                slug
+                node_locale
               }
-        }`).then((result) => {
-      result.data.allContentfulProject.edges.forEach(({ node }) => {
+            }
+          }
+        }
+      `).then((result) => {
+      ['about', 'contact', 'portfolio', 'services'].forEach((template) => {
+        const page = result.data[template];
+        const prefix = page.node_locale;
         createPage({
-          path: node.slug,
+          path: `/${prefix}/${template}`,
+          component: path.resolve(`./src/templates/${template}.js`),
+          context: { locale: page.node_locale },
+        });
+      });
+
+      result.data.projects.edges.forEach((item) => {
+        const prefix = item.node.node_locale;
+        const p = `/${prefix}/portfolio/${item.node.slug}`;
+        createPage({
+          path: p,
           component: path.resolve('./src/templates/project.js'),
           context: {
-            slug: node.slug,
+            slug: item.node.slug,
+            locale: item.node.node_locale,
           },
         });
       });
-      resolve();
     });
-  });
+  }));
 };
