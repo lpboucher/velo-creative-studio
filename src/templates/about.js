@@ -33,9 +33,9 @@ class about extends Component {
         <AboutHeader>Web Development</AboutHeader>
         <AboutCollab>{data.contentfulAbout.aboutPageCollaborator.aboutPageCollaborator}</AboutCollab>
         <Testimonial>
-          {data.contentfulAbout.testimonials.map((testimonial, index) => (
+          { /* data.contentfulAbout.testimonials.map((testimonial, index) => (
             <p key={index}>{testimonial}</p>
-          ))}
+          )) */}
         </Testimonial>
         <AboutHeader>@vero.lagarde</AboutHeader>
         <InstaContainer id={instafeedTarget}>
