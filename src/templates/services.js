@@ -19,7 +19,7 @@ import { ContactAnchor } from '../components/Styles/MainStyles';
 const ServicePage = ({ data }) => (
   <div>
     <div>
-      <Overdrive id="intro">
+      <Overdrive id={`intro-${data.contentfulAbout.node_locale}`}>
         <ServiceIntro>{data.contentfulAbout.services.services}</ServiceIntro>
       </Overdrive>
     </div>
@@ -61,11 +61,13 @@ query ServicePageTest($locale: String!) {
     edges {
       node {
         ...ServiceData
+        node_locale
       }
     }
   }
   contentfulAbout (node_locale: { eq: $locale }) {
     ...AboutData
+    node_locale
   }
 }
 `;

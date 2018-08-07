@@ -13,7 +13,7 @@ const About = ({ about, location, locale }) => (
     <Overdrive id="logoAnimation">
       <Logo>velo creative studio</Logo>
     </Overdrive>
-    <Overdrive id="intro">
+    <Overdrive id={`intro-${locale}`}>
       <AboutDesc dangerouslySetInnerHTML={{
               __html: about.body.childMarkdownRemark.html,
             }}
@@ -79,8 +79,6 @@ export const query = graphql`
       }
     }
     slug
-    testimonials
-    node_locale
   }
 `;
 
