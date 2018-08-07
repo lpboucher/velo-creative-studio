@@ -28,6 +28,7 @@ export const query = graphql`
 query contactPageTest($locale: String!) {  
   contentfulAbout(node_locale: { eq: $locale }) {
       id
+      node_locale
       title
       location
       body {

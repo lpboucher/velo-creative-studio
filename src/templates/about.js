@@ -63,6 +63,7 @@ export const query = graphql`
 query AboutPageTest($locale: String!) {
   contentfulAbout(node_locale: { eq: $locale }) {
     ...AboutData
+    node_locale
   }
 }
 `;
