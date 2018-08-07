@@ -44,9 +44,12 @@ export default function Template({ data }) {
   );
 }
 export const projectQuery = graphql`
-    query SingleProject($slug: String!) {
-        contentfulProject (slug: {eq: $slug}) {
+    query SingleProject($slug: String!, $locale: String!) {
+        contentfulProject (slug: {eq: $slug}
+                          node_locale: {eq: $locale}
+        ) {
             id
+            node_locale
             title
             body {
                 id
