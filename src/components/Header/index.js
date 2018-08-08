@@ -34,7 +34,6 @@ class Header extends Component {
           <Overdrive id="logoAnimation">
             <StyledLogo location={this.props.location} onClick={this.resetHidden} to={`/${this.props.locale}`}>velo creative studio</StyledLogo>
           </Overdrive>
-          <SelectLanguage langs={this.props.langs} />
           <MainNav
             nav={this.props.nav.edges}
             toggleHidden={this.toggleHidden}
@@ -42,6 +41,7 @@ class Header extends Component {
             resetHidden={this.resetHidden}
             locale={this.props.locale}
           />
+          <SelectLanguage langs={this.props.langs} />
         </HeaderContainer>
       </HeaderWrapper>
     );
