@@ -22,9 +22,14 @@ export const HeaderContainer = styled.div`
   }
 `;
 
+export const NavContainer = styled.nav`
+  flex-grow: 1;
+`;
+
 export const StyledNavList = styled.ul`
   list-style: none;
   display: flex;
+  float: right;
   margin: 0;
 
   @media (max-width: 900px) {
@@ -91,13 +96,23 @@ export const LanguageSelect = styled.ul`
   list-style: none;
   display: flex;
   margin: 0;
+  text-transform: uppercase;
+  flex-direction: column;
+  font-size: 14px;
+
+  &:hover > a:nth-child(2) {
+    display: initial;
+  }
 
   & > a {
     color: #4a4a4a;
     text-decoration: none;
-    font-size: 16px;
     font-weight: 300;
     letter-spacing: 2px;
+
+    &:nth-child(2) {
+      display: none;
+    }
 
     & > li {
       margin: 0 20px;
