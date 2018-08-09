@@ -54,13 +54,13 @@ export const FormLabel = styled.label`
 `;
 
 export const FormInput = styled.input`
-    border: 2px solid #d3bdaa;
+    border: 2px solid #f2f2f0;
     width: 100%;
     margin-bottom: 10px;
 `;
 
 export const FormMessage = styled.textarea`
-    border: 2px solid #d3bdaa;
+    border: 2px solid #f2f2f0;
     width: 100%;
     margin-bottom: 10px;
 `;
