@@ -41,7 +41,7 @@ class Header extends Component {
             resetHidden={this.resetHidden}
             locale={this.props.locale}
           />
-          <SelectLanguage langs={this.props.langs} />
+          <SelectLanguage langs={this.props.langs} locale={this.props.locale} />
         </HeaderContainer>
       </HeaderWrapper>
     );
