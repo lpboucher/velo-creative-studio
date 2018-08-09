@@ -9,8 +9,8 @@ const Service = ({ service, count }) => (
     <ServiceContainer>
       <ServiceTitle><span>0{count} </span><span>{service.title}</span></ServiceTitle>
       <p>{service.description.internal.content}</p>
-      <ContactAnchor count={count}>Contact Us</ContactAnchor>
-      <CallToAction>Explore projects</CallToAction>
+      <ContactAnchor count={count}>{service.contactButton}</ContactAnchor>
+      <CallToAction>{service.projectButton}</CallToAction>
     </ServiceContainer>
   </ServiceWrapper>
 );
@@ -40,6 +40,8 @@ export const query = graphql`
         ...GatsbyContentfulSizes
       }
     }
+    contactButton
+    projectButton
   }
 `;
 

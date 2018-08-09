@@ -21,7 +21,7 @@ const About = ({ about, location, locale }) => (
     </Overdrive>
     <WorkButton>
       <StyledLink to={`/${locale}/portfolio`}>
-            View our work
+        {about.ctaHome}
       </StyledLink>
     </WorkButton>
   </AboutContainer>
@@ -40,6 +40,7 @@ export const query = graphql`
     id
     title
     location
+    ctaHome
     body {
       id
       childMarkdownRemark {

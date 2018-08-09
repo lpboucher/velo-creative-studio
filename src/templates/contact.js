@@ -9,14 +9,14 @@ import Form from '../components/Contact/Form';
 const contactPage = ({ data }) => (
   <ContactWrapper>
     <TwoColumn>
-      <ContactHeader>Let's Get In Touch</ContactHeader>
+      <ContactHeader>{data.contentfulContact.pageTitle}</ContactHeader>
       <InfoWrapper>
-        <InfoColumn><p>Email: vl@velocreative.studio</p></InfoColumn>
-        <InfoColumn><p>Phone: +31 611985364</p></InfoColumn>
-        <InfoColumn><p>Skype: @verolagarde</p></InfoColumn>
+        <InfoColumn><p>{data.contentfulContact.emailLabel}: vl@velocreative.studio</p></InfoColumn>
+        <InfoColumn><p>{data.contentfulContact.phoneLabel}: +31 611985364</p></InfoColumn>
+        <InfoColumn><p>{data.contentfulContact.skypeLabel}: @verolagarde</p></InfoColumn>
       </InfoWrapper>
-      <p>or please fill in this form:</p>
-      <Form />
+      <p>{data.contentfulContact.formIntroLabel}</p>
+      <Form label={data.contentfulContact} />
     </TwoColumn>
     <TwoColumn>
       <Img sizes={data.contentfulAbout.featureImage.sizes} alt={data.contentfulAbout.featureImage.description} />
@@ -44,6 +44,19 @@ query contactPageTest($locale: String!) {
           ...GatsbyContentfulSizes
         }
       }
+  }
+  contentfulContact(node_locale: { eq: $locale }) {
+    pageTitle
+    emailLabel
+    phoneLabel
+    skypeLabel
+    formIntroLabel
+    formNameLabel
+    formEmailLabel
+    formNumberLabel
+    formCompanyLabel
+    formMessageLabel
+    formButtonLabel
   }
 }
 `;

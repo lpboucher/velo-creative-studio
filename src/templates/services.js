@@ -16,7 +16,7 @@ import {
 } from '../components/Styles/ServiceStyles';
 import { ContactAnchor } from '../components/Styles/MainStyles';
 
-const ServicePage = ({ data }) => (
+const ServicePage = ({ data, pathContext }) => (
   <div>
     <div>
       <Overdrive id={`intro-${data.contentfulAbout.node_locale}`}>
@@ -40,8 +40,8 @@ const ServicePage = ({ data }) => (
               </ServiceCategory>
             ))}
           </ServiceCategories>
-          <ContactAnchor count={index + 1}><Link to="/contact">Contact Us</Link></ContactAnchor>
-          <ContactAnchor count={index + 1}><Link to="/portfolio">Explore projects</Link></ContactAnchor>
+          <ContactAnchor count={index + 1}><Link to={`/${pathContext.locale}/contact`}>{node.contactButton}</Link></ContactAnchor>
+          <ContactAnchor count={index + 1}><Link to={`/${pathContext.locale}/portfolio`}>{node.projectButton}</Link></ContactAnchor>
         </ServiceContainer>
         <ServiceFeature title={node.title} index={index + 1} >
           <Img sizes={node.serviceFeature.sizes} alt={node.serviceFeature.description} />
