@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Intro } from '../Styles/MainStyles';
 
 export const AboutIntro = Intro.extend`
-    font-size: 16px;
+    font-size: 22px;
     text-align: justify;
 `;
 
