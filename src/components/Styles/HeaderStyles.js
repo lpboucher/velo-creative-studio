@@ -98,11 +98,8 @@ export const LanguageSelect = styled.ul`
   margin: 0;
   text-transform: uppercase;
   flex-direction: column;
+  line-height: 32px;
   font-size: 14px;
-
-  &:hover > a:nth-child(2) {
-    display: initial;
-  }
 
   & > a {
     color: #4a4a4a;
@@ -110,8 +107,12 @@ export const LanguageSelect = styled.ul`
     font-weight: 300;
     letter-spacing: 2px;
 
+    &:nth-child(1) {
+      display: ${props => (props.locale.substr(0, 2) === 'fr' ? 'initial' : 'none')};
+    }
+
     &:nth-child(2) {
-      display: none;
+      display: ${props => (props.locale.substr(0, 2) === 'en' ? 'initial' : 'none')};
     }
 
     & > li {
