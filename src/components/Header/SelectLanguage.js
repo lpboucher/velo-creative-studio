@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 
 import { LanguageSelect } from '../Styles/HeaderStyles';
 
-const SelectLanguage = ({ langs }) => {
+const SelectLanguage = ({ langs, locale }) => {
   const links = langs.map(lang => (
     <Link to={lang.link} key={lang.langKey} >
       <li selected={lang.selected}>
@@ -13,7 +13,7 @@ const SelectLanguage = ({ langs }) => {
     </Link>));
 
   return (
-    <LanguageSelect>
+    <LanguageSelect locale={locale}>
       {links}
     </LanguageSelect>
   );
