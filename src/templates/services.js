@@ -48,7 +48,7 @@ const ServicePage = ({ data, pathContext }) => (
         </ServiceFeature>
       </ServiceWrapper>
     ))}
-    <Package />
+    <Package packageDetail={data.contentfulBrandKit} />
   </div>
 );
 
@@ -67,6 +67,10 @@ query ServicePageTest($locale: String!) {
   }
   contentfulAbout (node_locale: { eq: $locale }) {
     ...AboutData
+    node_locale
+  }
+  contentfulBrandKit (node_locale: { eq: $locale }) {
+    ...PackageData
     node_locale
   }
 }
