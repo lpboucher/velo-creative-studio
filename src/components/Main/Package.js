@@ -10,24 +10,40 @@ import {
   PackageAdd,
 } from '../Styles/PackageStyles';
 
-const Package = () => (
+const Package = ({ packageDetail }) => (
   <PackageWrapper>
     <PackageContainer>
-      <PackageTitle>Brand Kit Package</PackageTitle>
+      <PackageTitle>{packageDetail.title}</PackageTitle>
       <hr />
       <PackageDesc>
-        We deliver on the promise of entrepreneurs who are eager to brand and spread their ideas and products. This brand kit has been designed to meet the needs of startups in order to bring their ideas to life.
+        {packageDetail.tagline.tagline}
       </PackageDesc>
-      <PackageSubTitle>What does the kit include</PackageSubTitle>
+      <PackageSubTitle>{packageDetail.includesTitle}</PackageSubTitle>
       <PackageList>
-        <li>Free consultation and brainstorm</li>
-        <li>Branding Manual</li>
-        <li>Website</li>
+        {packageDetail.includes.map(item => (
+          <li key={item.substr(0, 4)}>{item}</li>
+        ))}
       </PackageList>
-      <p>Duration: 10 weeks</p>
-      <PackageAdd>Additional items can be added to the package such as business cards, branded collateral, presentations, brochures.</PackageAdd>
+      <p>{packageDetail.duration}</p>
+      <PackageAdd>{packageDetail.closingTagLine.closingTagLine}</PackageAdd>
     </PackageContainer>
   </PackageWrapper>
 );
+
+export const query = graphql`
+  fragment PackageData on ContentfulBrandKit {
+    title
+    tagline {
+      tagline
+    }
+    includesTitle
+    includes
+    duration
+    closingTagLine {
+      id
+      closingTagLine
+    }
+  }
+`;
 
 export default Package;
