@@ -5,7 +5,6 @@ import { Intro } from '../Styles/MainStyles';
 
 export const AboutIntro = Intro.extend`
     font-size: 22px;
-    text-align: justify;
 `;
 
 export const AboutDesc = styled.div`
@@ -69,6 +68,6 @@ export const Testimonial = styled.div`
     padding: 40px;
     margin-bottom: 40px;
     text-align: center;
-    font-size: 24px;
+    font-size: 14px;
     background-color: #fafafa;
 `;
