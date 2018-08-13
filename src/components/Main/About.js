@@ -79,6 +79,7 @@ export const query = graphql`
         ...GatsbyContentfulSizes
       }
     }
+    aboutPageDevTitle
     slug
   }
 `;

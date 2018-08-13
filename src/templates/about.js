@@ -30,12 +30,12 @@ class about extends Component {
           </SmallColumn>
         </FeatureWrapper>
         <AboutProfile>{data.contentfulAbout.aboutPageProfile.aboutPageProfile}</AboutProfile>
-        <AboutHeader>Web Development</AboutHeader>
+        <AboutHeader>{data.contentfulAbout.aboutPageDevTitle}</AboutHeader>
         <AboutCollab>{data.contentfulAbout.aboutPageCollaborator.aboutPageCollaborator}</AboutCollab>
         <Testimonial>
-          { /* data.contentfulAbout.testimonials.map((testimonial, index) => (
-            <p key={index}>{testimonial}</p>
-          )) */}
+          {/* data.contentfulTestimonial.map((testimonial, index) => ( */
+            <p>{`${data.contentfulTestimonial.quote.quote} - ${data.contentfulTestimonial.clientName}, ${data.contentfulTestimonial.organisation}`}</p>
+          /* )) */ }
         </Testimonial>
         <AboutHeader>@vero.lagarde</AboutHeader>
         <InstaContainer id={instafeedTarget}>
@@ -49,9 +49,9 @@ class about extends Component {
               <a href='{{link}}' target='_blank' class='instafeed__item'>
                 <img class='instafeed__item__background' src='{{image}}' />
                </a>"
-            userId={`${process.env.GATSBY_INSTAGRAM_USER_ID}`}
-            clientId={`${process.env.GATSBY_INSTAGRAM_CLIENT_ID}`}
-            accessToken={`${process.env.GATSBY_INSTAGRAM_ACCESS_TOKEN}`}
+            userId={process.env.INSTAGRAM_USER_ID}
+            clientId={process.env.INSTAGRAM_CLIENT_ID}
+            accessToken={process.env.INSTAGRAM_ACCESS_TOKEN}
           />
         </InstaContainer>
       </div>
@@ -64,6 +64,14 @@ query AboutPageTest($locale: String!) {
   contentfulAbout(node_locale: { eq: $locale }) {
     ...AboutData
     node_locale
+  }
+  contentfulTestimonial(node_locale: { eq: $locale }) {
+    clientName
+    organisation
+    quote {
+      id
+      quote
+    }
   }
 }
 `;
