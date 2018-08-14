@@ -49,9 +49,9 @@ class about extends Component {
               <a href='{{link}}' target='_blank' class='instafeed__item'>
                 <img class='instafeed__item__background' src='{{image}}' />
                </a>"
-            userId={`${process.env.INSTAGRAM_USER_ID}`}
-            clientId={`${process.env.INSTAGRAM_CLIENT_ID}`}
-            accessToken={`${process.env.INSTAGRAM_ACCESS_TOKEN}`}
+            userId={`${process.env.GATSBY_INSTAGRAM_USER_ID}`}
+            clientId={`${process.env.GATSBY_INSTAGRAM_CLIENT_ID}`}
+            accessToken={`${process.env.GATSBY_INSTAGRAM_ACCESS_TOKEN}`}
           />
         </InstaContainer>
       </div>
