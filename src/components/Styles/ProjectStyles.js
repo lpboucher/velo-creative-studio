@@ -102,6 +102,16 @@ export const Description = styled.div`
         font-weight: 200;
         font-size: 14px;
         padding-right: 40px;
+        margin-bottom: 15px;
+
+        @media (max-width: 1400px) {
+            padding-right: 20px;
+        }
+        
+        @media (max-width: 1200px) {
+            margin-bottom: 10px;
+            padding-right: 20px;
+        }
 
         & > a {
             text-decoration: none;
@@ -119,11 +129,15 @@ export const Description = styled.div`
 
     @media (max-width: 900px) {
         text-align: center;
-        line-height: 1.45em;
+        line-height: 1.15em;
     }
 
-    @media (max-width: 600px) {
-        line-height: 16px;
+    @media (max-width: 500px) {
+        line-height: 20px;
+    }
+
+    @media (max-width: 420px) {
+        line-height: 1.15em;
     }
 `;
 
@@ -251,6 +265,10 @@ export const ProjectDetail = styled.div`
     grid-auto-rows: 300px;
     grid-gap: 40px;
     grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: 500px) {
+        grid-auto-rows: 350px;
+    }
 
     & > * {
         break-inside: avoid;
