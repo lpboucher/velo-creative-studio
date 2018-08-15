@@ -6,20 +6,34 @@ import { TwoColumn } from '../components/Styles/MainStyles';
 
 import Form from '../components/Contact/Form';
 
-const contactPage = ({ data }) => (
+const contactPage = ({
+  data: {
+    contentfulContact: {
+      pageTitle,
+      emailLabel,
+      phoneLabel,
+      skypeLabel,
+      formIntroLabel,
+      ...form
+    },
+    contentfulAbout: {
+      featureImage,
+    },
+  },
+}) => (
   <ContactWrapper>
     <TwoColumn>
-      <ContactHeader>{data.contentfulContact.pageTitle}</ContactHeader>
+      <ContactHeader>{pageTitle}</ContactHeader>
       <InfoWrapper>
-        <InfoColumn><p>{data.contentfulContact.emailLabel}: vl@velocreative.studio</p></InfoColumn>
-        <InfoColumn><p>{data.contentfulContact.phoneLabel}: +31 611985364</p></InfoColumn>
-        <InfoColumn><p>{data.contentfulContact.skypeLabel}: @verolagarde</p></InfoColumn>
+        <InfoColumn><p>{emailLabel}: vl@velocreative.studio</p></InfoColumn>
+        <InfoColumn><p>{phoneLabel}: +31 611985364</p></InfoColumn>
+        <InfoColumn><p>{skypeLabel}: @verolagarde</p></InfoColumn>
       </InfoWrapper>
-      <p>{data.contentfulContact.formIntroLabel}</p>
-      <Form label={data.contentfulContact} />
+      <p>{formIntroLabel}</p>
+      <Form {...form} />
     </TwoColumn>
     <TwoColumn>
-      <Img sizes={data.contentfulAbout.featureImage.sizes} alt={data.contentfulAbout.featureImage.description} />
+      <Img sizes={featureImage.sizes} alt={featureImage.description} />
     </TwoColumn>
   </ContactWrapper>
 );
@@ -51,12 +65,7 @@ query contactPageTest($locale: String!) {
     phoneLabel
     skypeLabel
     formIntroLabel
-    formNameLabel
-    formEmailLabel
-    formNumberLabel
-    formCompanyLabel
-    formMessageLabel
-    formButtonLabel
+    ...FormData
   }
 }
 `;
