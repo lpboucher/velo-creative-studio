@@ -29,7 +29,7 @@ export const query = graphql`
       }
     }
     contentfulAbout (node_locale: { eq: $locale }) {
-      ...AboutData
+      ...AboutIndexData
       node_locale
     }
   }

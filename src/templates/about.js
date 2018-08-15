@@ -62,8 +62,45 @@ class about extends Component {
 export const query = graphql`
 query AboutPageTest($locale: String!) {
   contentfulAbout(node_locale: { eq: $locale }) {
-    ...AboutData
+    ...AboutIndexData
     node_locale
+    id
+    title
+    location
+    services {
+      id
+      services
+    }
+    portfolio {
+      id
+      portfolio
+    }
+    introPage {
+      id
+      introPage
+    }
+    aboutPageTop {
+      aboutPageTop
+      id
+    }
+    aboutPageTitle
+    aboutPageProfile {
+      id
+      aboutPageProfile
+    }
+    aboutPageCollaborator {
+      id
+      aboutPageCollaborator
+    }
+    aboutPageFeature {
+      id
+      description
+      sizes ( maxWidth: 1000 ) {
+        ...GatsbyContentfulSizes
+      }
+    }
+    aboutPageDevTitle
+    slug
   }
   contentfulTestimonial(node_locale: { eq: $locale }) {
     clientName

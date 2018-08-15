@@ -13,7 +13,7 @@ const IndexPage = ({ data, location, pathContext }) => (
 export const query = graphql`
   query SiteMainTest($locale: String!) {
     contentfulAbout(node_locale: { eq: $locale }) {
-      ...AboutData
+      ...AboutIndexData
       seoTitle
       seoDescription {
       seoDescription

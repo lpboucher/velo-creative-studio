@@ -66,7 +66,7 @@ query ServicePageTest($locale: String!) {
     }
   }
   contentfulAbout (node_locale: { eq: $locale }) {
-    ...AboutData
+    ...AboutIndexData
     node_locale
   }
   contentfulBrandKit (node_locale: { eq: $locale }) {
