@@ -14,6 +14,10 @@ export const FooterWrapper = styled.div`
     border-top: 0.5px solid;
     padding: 20px 0px 0px;
     margin: 20px 40px 0;
+
+    @media (max-width: 600px) {
+        font-size: 10px;
+    }
 `;
 
 export const FooterLink = styled(Link)`

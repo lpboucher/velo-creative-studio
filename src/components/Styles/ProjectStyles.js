@@ -170,14 +170,15 @@ export const ProjectMasonry = styled.div`
         & > * {
             height: 100%;
         }
+        @media (min-width: 960px) {
+            &:hover .gatsby-image-outer-wrapper {
+                opacity: 0.5;
+            }
+            &:hover ${ProjectOverlay} {
+                display: block;
+            }
+        }
 
-        &:hover .gatsby-image-outer-wrapper {
-            opacity: 0.5;
-        }
-        &:hover ${ProjectOverlay} {
-            display: block;
-        }
-        
         &:nth-child(1) {
             grid-row: span 2;
             grid-column: 1 / span 1;
@@ -299,35 +300,4 @@ export const ProjectDetail = styled.div`
                 margin-top: -10%;
             }
         }
-
-     /*   &:nth-child(3) {
-            grid-row: span 1;
-            grid-column: 2 / span 1;
-        }
-
-        &:nth-child(4) {
-            grid-row: span 1;
-            grid-column: 1 / span 1;
-        }
-
-        &:nth-child(5) {
-            grid-row: span 1;
-            grid-column: 2 / span 1;
-        }
-
-        &:nth-child(6) {
-            grid-row: span 1;
-            grid-column: 1 / span 1;
-        }
-
-        &:nth-child(8) {
-            grid-row: span 1;
-            grid-column: 1 / span 1;
-        }
-
-        &:nth-child(7) {
-            grid-row: span 2;
-            grid-column: 2 / span 1;
-        }
-    } */
 `;

@@ -8,15 +8,25 @@ export const AboutIntro = Intro.extend`
 `;
 
 export const AboutDesc = styled.div`
+    margin: 10% 0;
+    
     & > p {
         margin: 0;
+
+        @media (max-width: 400px) {
+            font-size: 18px;
+        }
+
+        @media (max-width: 325px) {
+            font-size: 14px;
+        }
     }
+
     & > p:first-child {
         margin-bottom: 40px;
     }
-    margin: 10% 0;
 
-    @media (max-width: 500px) {
+    @media (max-width: 900px) {
         margin: 20% 0;
     }
 `;
