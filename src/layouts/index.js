@@ -32,7 +32,14 @@ const TemplateWrapper = ({ children, data, location }) => {
           title={data.contentfulAbout.seoTitle}
           meta={[
             { name: 'description', content: data.contentfulAbout.seoDescription.seoDescription },
+            { property: 'og:title', content: data.contentfulAbout.seoTitle },
+            { property: 'og:site_name', content: 'velocreative.studio' },
+            { property: 'og:type', content: 'website' },
+            { property: 'og:url', content: 'https://velocreative.studio/' },
+            { property: 'og:description', content: data.contentfulAbout.seoDescription.seoDescription },
+            { property: 'og:image', content: data.contentfulAbout.featureImage.file.url },
           ]}
+
           link={[
             { rel: 'shortcut icon', type: 'image/png', href: `${logo}` },
           ]}
@@ -82,7 +89,12 @@ export const query = graphql`
     contentfulAbout {
       seoTitle
       seoDescription {
-      seoDescription
+        seoDescription
+      }
+      featureImage {
+        file {
+          url
+        }
       }
     }
     site {
