@@ -16,6 +16,10 @@ export const HeaderContainer = styled.div`
   z-index: 2;
   background-color: #f2f2f0;
 
+  @media (max-width: 400px) {
+    padding: 20px 0 20px 40px;
+  }
+
   h1 {
     margin: 0;
     font-size: 16px;
@@ -71,10 +75,17 @@ text-decoration: none;
 font-size: 16px;
 font-weight: 300;
 letter-spacing: 2px;
-color: ${props => (props.location.pathname === '/en-US' ||
+color: ${props => (props.location.pathname === '/en-us' ||
+                  props.location.pathname === '/en-us/' ||
+                  props.location.pathname === '/' ||
+                  props.location.pathname === '/en-US' ||
                   props.location.pathname === '/en-US/' ||
                   props.location.pathname === '/fr' ||
                   props.location.pathname === '/fr/' ? '#f4f4f3' : '#4a4a4a')};
+
+@media (max-width: 400px) {
+  font-size: 12px;
+  }
 `;
 
 export const StyledNavItem = styled.li`
