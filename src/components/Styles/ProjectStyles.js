@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import Overdrive from 'react-overdrive';
 
 import { Title, Intro } from './MainStyles';
 

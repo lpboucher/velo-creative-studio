@@ -18,9 +18,13 @@ const SelectLanguage = ({ langs, locale }) => {
     </LanguageSelect>
   );
 };
+SelectLanguage.defaultProps = {
+  locale: 'en-US',
+};
 
 SelectLanguage.propTypes = {
-  langs: PropTypes.array,
+  langs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  locale: PropTypes.string,
 };
 
 export default SelectLanguage;
