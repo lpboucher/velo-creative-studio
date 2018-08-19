@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Overdrive from 'react-overdrive';
 
 import { HeaderWrapper, HeaderContainer, StyledLogo } from '../Styles/HeaderStyles';
@@ -28,24 +29,46 @@ class Header extends Component {
   }
 
   render() {
+    const {
+      langs,
+      locale,
+      location,
+      nav: {
+        edges,
+      },
+    } = this.props;
     return (
       <HeaderWrapper>
         <HeaderContainer>
           <Overdrive id="logoAnimation">
-            <StyledLogo location={this.props.location} onClick={this.resetHidden} to={`/${this.props.locale}`}>velo creative studio</StyledLogo>
+            <StyledLogo location={location} onClick={this.resetHidden} to={`/${locale}`}>velo creative studio</StyledLogo>
           </Overdrive>
           <MainNav
-            nav={this.props.nav.edges}
+            nav={edges}
             toggleHidden={this.toggleHidden}
             isHidden={this.state.isHidden}
             resetHidden={this.resetHidden}
-            locale={this.props.locale}
+            locale={locale}
           />
-          <SelectLanguage langs={this.props.langs} locale={this.props.locale} />
+          <SelectLanguage langs={langs} locale={locale} />
         </HeaderContainer>
       </HeaderWrapper>
     );
   }
 }
+Header.defaultProps = {
+  locale: 'en-US',
+};
+
+Header.propTypes = {
+  langs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  locale: PropTypes.string,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+  nav: PropTypes.shape({
+    edges: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
+};
 
 export default Header;

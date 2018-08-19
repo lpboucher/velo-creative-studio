@@ -43,10 +43,14 @@ Package.defaultProps = {
 
 Package.propTypes = {
   title: PropTypes.string,
-  tagline: PropTypes.string,
+  tagline: PropTypes.shape({
+    tagline: PropTypes.string,
+  }),
   includesTitle: PropTypes.string,
   duration: PropTypes.string,
-  closingTagLine: PropTypes.string,
+  closingTagLine: PropTypes.shape({
+    closingTagLine: PropTypes.string,
+  }),
 };
 
 export const query = graphql`

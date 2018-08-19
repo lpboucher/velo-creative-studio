@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Intro, ContactAnchor } from '../Styles/MainStyles';
+import { Intro, ContactAnchor } from './MainStyles';
 
 export const CallToAction = styled.p`
 `;
