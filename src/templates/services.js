@@ -1,56 +1,55 @@
+/* eslint react/no-danger: 0 */
+
 import React from 'react';
-import Img from 'gatsby-image';
+import PropTypes from 'prop-types';
 import Overdrive from 'react-overdrive';
-import Link from 'gatsby-link';
 
 import Package from '../components/Main/Package';
+import Service from '../components/Main/Service';
+import { ServiceIntro } from '../components/Styles/ServiceStyles';
 
-import {
-  ServiceIntro,
-  ServiceContainer,
-  ServiceTitle,
-  ServiceFeature,
-  ServiceWrapper,
-  ServiceCategory,
-  ServiceCategories,
-} from '../components/Styles/ServiceStyles';
-import { ContactAnchor } from '../components/Styles/MainStyles';
-
-const ServicePage = ({ data, pathContext }) => (
+const ServicePage = ({
+  pathContext: {
+    locale,
+  },
+  data: {
+    allContentfulService,
+    contentfulAbout: {
+      node_locale,
+      services,
+    },
+    contentfulBrandKit: {
+      ...brandKit
+    },
+  },
+}) => (
   <div>
     <div>
-      <Overdrive id={`intro-${data.contentfulAbout.node_locale}`}>
-        <ServiceIntro>{data.contentfulAbout.services.services}</ServiceIntro>
+      <Overdrive id={`intro-${node_locale}`}>
+        <ServiceIntro>{services.services}</ServiceIntro>
       </Overdrive>
     </div>
-    {data.allContentfulService.edges.map(({ node }, index) => (
-      <ServiceWrapper key={node.id}>
-        <ServiceContainer key={node.id}>
-          <ServiceTitle><span>0{index + 1} </span><span>{node.title}</span></ServiceTitle>
-          <p dangerouslySetInnerHTML={{
-              __html: node.description.childMarkdownRemark.html,
-            }}
-          />
-          <ServiceCategories>
-            {node.categories.map(({ name, id }, count, array) => (
-              <ServiceCategory key={id}>{name}
-                {array.length - count > 1 &&
-                  <span>|</span>
-                }
-              </ServiceCategory>
-            ))}
-          </ServiceCategories>
-          <ContactAnchor count={index + 1}><Link to={`/${pathContext.locale}/contact`}>{node.contactButton}</Link></ContactAnchor>
-          <ContactAnchor count={index + 1}><Link to={`/${pathContext.locale}/portfolio`}>{node.projectButton}</Link></ContactAnchor>
-        </ServiceContainer>
-        <ServiceFeature title={node.title} index={index + 1} >
-          <Img sizes={node.serviceFeature.sizes} alt={node.serviceFeature.description} />
-        </ServiceFeature>
-      </ServiceWrapper>
+    {allContentfulService.edges.map(({ node }, index) => (
+      <Service key={node.id} service={node} locale={locale} index={index} />
     ))}
-    <Package packageDetail={data.contentfulBrandKit} />
+    <Package {...brandKit} />
   </div>
 );
+
+ServicePage.propTypes = {
+  pathContext: PropTypes.shape({
+    locale: PropTypes.string,
+  }).isRequired,
+  data: PropTypes.shape({
+    contentfulAbout: PropTypes.shape({
+      node_locale: PropTypes.string,
+      services: PropTypes.shape({
+        services: PropTypes.string,
+      }),
+    }).isRequired,
+    contentfulBrandkit: PropTypes.object,
+  }).isRequired,
+};
 
 export const query = graphql`
 query ServicePageTest($locale: String!) {
@@ -68,6 +67,9 @@ query ServicePageTest($locale: String!) {
   contentfulAbout (node_locale: { eq: $locale }) {
     ...AboutIndexData
     node_locale
+    services {
+      services
+    }
   }
   contentfulBrandKit (node_locale: { eq: $locale }) {
     ...PackageData
