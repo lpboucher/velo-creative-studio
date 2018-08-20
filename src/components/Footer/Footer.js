@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import PropTypes from 'prop-types';
 
 import { FooterWrapper, FooterColumn, FooterLink, FooterExternalLink } from '../Styles/FooterStyles';
 
@@ -22,6 +22,17 @@ const Footer = ({ footer, locale }) => (
     </FooterColumn>
   </FooterWrapper>
 );
+
+Footer.defaultProps = {
+  locale: 'en-US',
+};
+
+Footer.propTypes = {
+  locale: PropTypes.string,
+  footer: PropTypes.shape({
+    edges: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
+};
 
 export const query = graphql`
   fragment FooterData on ContentfulFooterItem {

@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 
 import { StyledNavList, MobileIcon, NavContainer } from '../Styles/HeaderStyles';
 import NavItem from './NavItem';
@@ -24,6 +23,18 @@ const MainNav = ({
     </StyledNavList>
   </NavContainer>
 );
+
+MainNav.defaultProps = {
+  locale: 'en-US',
+};
+
+MainNav.propTypes = {
+  nav: PropTypes.arrayOf(PropTypes.object).isRequired,
+  locale: PropTypes.string,
+  toggleHidden: PropTypes.func.isRequired,
+  resetHidden: PropTypes.func.isRequired,
+  isHidden: PropTypes.bool.isRequired,
+};
 
 export default MainNav;
 

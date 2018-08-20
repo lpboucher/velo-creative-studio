@@ -51,7 +51,16 @@ const TemplateWrapper = ({ children, data, location }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    allContentFulFooterItem: PropTypes.object,
+    allContentFulNavigation: PropTypes.object,
+    contentfulAbout: PropTypes.object,
+    site: PropTypes.object,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 export const query = graphql`
