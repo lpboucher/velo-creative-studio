@@ -52,6 +52,9 @@ export const query = graphql`
     }
     contentfulAbout (node_locale: { eq: $locale }) {
       ...AboutIndexData
+      portfolio {
+        portfolio
+      }
       node_locale
     }
   }
