@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
 import { InfoWrapper, InfoColumn, ContactHeader, ContactWrapper } from '../components/Styles/ContactStyles';
@@ -37,6 +38,22 @@ const contactPage = ({
     </TwoColumn>
   </ContactWrapper>
 );
+
+contactPage.propTypes = {
+  data: PropTypes.shape({
+    contentfulContact: PropTypes.shape({
+      pageTitle: PropTypes.string,
+      emailLabel: PropTypes.string,
+      phoneLabel: PropTypes.string,
+      skypeLabel: PropTypes.string,
+      formIntroLabel: PropTypes.string,
+    }),
+    contentfulAbout: PropTypes.shape({
+      description: PropTypes.string,
+      sizes: PropTypes.object,
+    }),
+  }).isRequired,
+};
 
 export const query = graphql`
 query contactPageTest($locale: String!) {  

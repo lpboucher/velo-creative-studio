@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
 import Instagram from '../components/Main/Instagram';
+import Testimonial from '../components/Main/Testimonial';
 
 import { LargeColumn, SmallColumn } from '../components/Styles/MainStyles';
 import {
@@ -11,32 +13,64 @@ import {
   AboutProfile,
   AboutCollab,
   AboutHeader,
-  Testimonial,
 } from '../components/Styles/AboutStyles';
 
-const about = ({ data }) => (
+const about = ({
+  data: {
+    contentfulAbout: {
+      aboutPageTop,
+      aboutPageFeature,
+      aboutPageTitle,
+      aboutPageProfile,
+      aboutPageDevTitle,
+      aboutPageCollaborator,
+    },
+    contentfulTestimonial: {
+      ...testimony
+    },
+  },
+}) => (
   <div>
-    <AboutIntro>{data.contentfulAbout.aboutPageTop.aboutPageTop}</AboutIntro>
+    <AboutIntro>{aboutPageTop.aboutPageTop}</AboutIntro>
     <FeatureWrapper>
       <LargeColumn>
-        <Img sizes={data.contentfulAbout.aboutPageFeature.sizes} alt={data.contentfulAbout.aboutPageFeature.description} />
+        <Img sizes={aboutPageFeature.sizes} alt={aboutPageFeature.description} />
       </LargeColumn>
       <SmallColumn>
-        <AboutTitle>{data.contentfulAbout.aboutPageTitle}</AboutTitle>
+        <AboutTitle>{aboutPageTitle}</AboutTitle>
       </SmallColumn>
     </FeatureWrapper>
-    <AboutProfile>{data.contentfulAbout.aboutPageProfile.aboutPageProfile}</AboutProfile>
-    <AboutHeader>{data.contentfulAbout.aboutPageDevTitle}</AboutHeader>
-    <AboutCollab>{data.contentfulAbout.aboutPageCollaborator.aboutPageCollaborator}</AboutCollab>
-    <Testimonial>
-      {/* data.contentfulTestimonial.map((testimonial, index) => ( */
-        <p>{`${data.contentfulTestimonial.quote.quote} - ${data.contentfulTestimonial.clientName}, ${data.contentfulTestimonial.organisation}`}</p>
-          /* )) */ }
-    </Testimonial>
+    <AboutProfile>{aboutPageProfile.aboutPageProfile}</AboutProfile>
+    <AboutHeader>{aboutPageDevTitle}</AboutHeader>
+    <AboutCollab>{aboutPageCollaborator.aboutPageCollaborator}</AboutCollab>
+    <Testimonial {...testimony} />
     <AboutHeader>@vero.lagarde</AboutHeader>
     <Instagram />
   </div>
 );
+
+about.propTypes = {
+  data: PropTypes.shape({
+    contentfulAbout: {
+      aboutPageTop: PropTypes.shape({
+        aboutPageTop: PropTypes.string,
+      }),
+      aboutPageFeature: PropTypes.shape({
+        description: PropTypes.string,
+        sizes: PropTypes.object,
+      }),
+      aboutPageTitle: PropTypes.string,
+      aboutPageProfile: PropTypes.shape({
+        aboutPageProfile: PropTypes.string,
+      }),
+      aboutPageDevTitle: PropTypes.string,
+      aboutPageCollaborator: PropTypes.shape({
+        aboutPageCollaborator: PropTypes.string,
+      }),
+    }.isRequired,
+    contentfulTestimonial: PropTypes.object.isRequired,
+  }).isRequired,
+};
 
 export const query = graphql`
 query AboutPageTest($locale: String!) {
