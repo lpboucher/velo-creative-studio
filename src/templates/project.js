@@ -1,55 +1,88 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import Overdrive from 'react-overdrive';
 import Helmet from 'react-helmet';
+
+import ListingPreview from '../components/Main/ListingPreview';
 
 import {
   ProjectWrapper,
   ProjectTitle,
   ProjectDetail,
   Description,
-  ProjectMasonry,
 } from '../components/Styles/ProjectStyles';
 
-export default function Template({ data }) {
+export default function Template({
+  data: {
+    contentfulProject: {
+      seoTitle,
+      seoDescription,
+      title,
+      location,
+      category,
+      body,
+      feature,
+      id,
+      ...previews
+    },
+  },
+}) {
   return (
     <div>
       <Helmet
-        title={data.contentfulProject.seoTitle}
+        title={seoTitle}
         meta={[
-        { name: 'description', content: data.contentfulProject.seoDescription.seoDescription },
+        { name: 'description', content: seoDescription.seoDescription },
       ]}
       />
       <ProjectWrapper>
         <ProjectTitle>
-          <h1>{data.contentfulProject.title} | {data.contentfulProject.location}</h1>
-          <h3>{data.contentfulProject.category}</h3>
+          <h1>{title} | {location}</h1>
+          <h3>{category}</h3>
         </ProjectTitle>
         <ProjectDetail>
           <Description dangerouslySetInnerHTML={{
-              __html: data.contentfulProject.body.childMarkdownRemark.html,
+              __html: body.childMarkdownRemark.html,
             }}
           />
-          <Overdrive id={data.contentfulProject.id}>
-            <Img sizes={data.contentfulProject.feature.sizes} alt="" />
+          <Overdrive id={id}>
+            <Img sizes={feature.sizes} alt="" />
           </Overdrive>
         </ProjectDetail>
       </ProjectWrapper>
-      <ProjectMasonry>
-        {data.contentfulProject.previews.map(({ sizes, description, id }) => (
-          <Img key={id} sizes={sizes} alt={description} />
-    ))}
-      </ProjectMasonry>
+      <ListingPreview {...previews} />
     </div>
   );
 }
+
+Template.propTypes = {
+  data: PropTypes.shape({
+    contentfulProject: PropTypes.shape({
+      seoTitle: PropTypes.string,
+      seoDescription: PropTypes.shape({
+        seoDescription: PropTypes.string,
+      }),
+      title: PropTypes.string,
+      location: PropTypes.string,
+      category: PropTypes.string,
+      body: PropTypes.shape({
+        childMarkdownRemark: PropTypes.object,
+      }),
+      feature: PropTypes.shape({
+        sizes: PropTypes.object,
+      }),
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};
+
 export const projectQuery = graphql`
     query SingleProject($slug: String!, $locale: String!) {
         contentfulProject (slug: {eq: $slug}
                           node_locale: {eq: $locale}
         ) {
             id
-            node_locale
             title
             body {
                 id
@@ -58,7 +91,6 @@ export const projectQuery = graphql`
                   html 
                 }
             }
-            slug
             category
             location
             feature {
