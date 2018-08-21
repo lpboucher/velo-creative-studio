@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+
 import React from 'react';
 import { getUserLangKey } from 'ptz-i18n';
 import { withPrefix } from 'gatsby-link';

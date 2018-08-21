@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-import { StyledLink } from '../Styles/HeaderStyles';
+import { StyledLink } from './HeaderStyles';
 
 export const Logo = styled.p`
 `;

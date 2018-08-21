@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Img from 'gatsby-image';
 import Overdrive from 'react-overdrive';
@@ -17,6 +18,29 @@ const ProjectBrick = ({ brick, locale }) => {
       <ProjectOverlay>{brick.title}</ProjectOverlay>
     </div>
   );
+};
+
+ProjectBrick.defaultProps = {
+  locale: 'en-US',
+};
+
+ProjectBrick.propTypes = {
+  locale: PropTypes.string,
+  brick: PropTypes.shape({
+    id: PropTypes.string,
+    body: PropTypes.shape({
+      body: PropTypes.string,
+    }),
+    category: PropTypes.string,
+    feature: PropTypes.shape({
+      description: PropTypes.string,
+      title: PropTypes.string,
+      sizes: PropTypes.object,
+    }),
+    isClickable: PropTypes.bool,
+    slug: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
 };
 
 export const query = graphql`

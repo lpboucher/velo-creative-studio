@@ -1,20 +1,42 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import PropTypes from 'prop-types';
 
 import ProjectBrick from '../components/Projects/ProjectBrick';
 
 import { ProjectMasonry, PortfolioIntro } from '../components/Styles/ProjectStyles';
 
-const PortfolioPage = ({ data, pathContext }) => (
+const PortfolioPage = ({
+  data: {
+    contentfulAbout: {
+      portfolio,
+    },
+    allContentfulProject,
+  },
+  pathContext: {
+    locale,
+  },
+}) => (
   <div>
-    <PortfolioIntro>{data.contentfulAbout.portfolio.portfolio}</PortfolioIntro>
+    <PortfolioIntro>{portfolio.portfolio}</PortfolioIntro>
     <ProjectMasonry>
-      {data.allContentfulProject.edges.map(({ node }) => (
-        <ProjectBrick key={node.id} brick={node} locale={pathContext.locale} />
+      {allContentfulProject.edges.map(({ node }) => (
+        <ProjectBrick key={node.id} brick={node} locale={locale} />
     ))}
     </ProjectMasonry>
   </div>
 );
+
+PortfolioPage.propTypes = {
+  data: PropTypes.shape({
+    contentfulAbout: PropTypes.shape({
+      portfolio: PropTypes.object,
+    }),
+    allContentfulService: PropTypes.object,
+  }).isRequired,
+  pathContext: PropTypes.shape({
+    locale: PropTypes.string,
+  }).isRequired,
+};
 
 export const query = graphql`
   query PortfolioPageTest($locale: String!) {
@@ -29,7 +51,7 @@ export const query = graphql`
       }
     }
     contentfulAbout (node_locale: { eq: $locale }) {
-      ...AboutData
+      ...AboutIndexData
       node_locale
     }
   }

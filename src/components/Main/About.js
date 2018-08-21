@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 import Overdrive from 'react-overdrive';
 
@@ -8,7 +6,7 @@ import { AboutContainer, WorkButton, Logo } from '../Styles/MainStyles';
 import { AboutDesc } from '../Styles/AboutStyles';
 import { StyledLink } from '../Styles/HeaderStyles';
 
-const About = ({ about, location, locale }) => (
+const About = ({ about, locale }) => (
   <AboutContainer >
     <Overdrive id="logoAnimation">
       <Logo>velo creative studio</Logo>
@@ -27,19 +25,19 @@ const About = ({ about, location, locale }) => (
   </AboutContainer>
 );
 
+About.defaultProps = {
+  locale: 'en-US',
+};
+
 About.propTypes = {
   about: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    location: PropTypes.string,
     body: PropTypes.shape({ body: PropTypes.string }),
   }).isRequired,
+  locale: PropTypes.string,
 };
 
 export const query = graphql`
-  fragment AboutData on ContentfulAbout {
-    id
-    title
-    location
+  fragment AboutIndexData on ContentfulAbout {
     ctaHome
     body {
       id
@@ -47,40 +45,6 @@ export const query = graphql`
         html
       }
     }
-    services {
-      id
-      services
-    }
-    portfolio {
-      id
-      portfolio
-    }
-    introPage {
-      id
-      introPage
-    }
-    aboutPageTop {
-      aboutPageTop
-      id
-    }
-    aboutPageTitle
-    aboutPageProfile {
-      id
-      aboutPageProfile
-    }
-    aboutPageCollaborator {
-      id
-      aboutPageCollaborator
-    }
-    aboutPageFeature {
-      id
-      description
-      sizes ( maxWidth: 1000 ) {
-        ...GatsbyContentfulSizes
-      }
-    }
-    aboutPageDevTitle
-    slug
   }
 `;
 

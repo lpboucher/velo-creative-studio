@@ -5,16 +5,16 @@ import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import 'intl';
 
+import en from 'react-intl/locale-data/en';
+import 'intl/locale-data/jsonp/en';
+import fr from 'react-intl/locale-data/fr';
+import 'intl/locale-data/jsonp/fr';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer/Footer';
 import './index.css';
 
 import logo from '../images/favicon.ico';
-
-import en from 'react-intl/locale-data/en';
-import 'intl/locale-data/jsonp/en';
-import fr from 'react-intl/locale-data/fr';
-import 'intl/locale-data/jsonp/fr';
 
 addLocaleData([...en, ...fr]);
 
@@ -58,7 +58,16 @@ const TemplateWrapper = ({ children, data, location }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    allContentFulFooterItem: PropTypes.object,
+    allContentFulNavigation: PropTypes.object,
+    contentfulAbout: PropTypes.object,
+    site: PropTypes.object,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 export const query = graphql`

@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
-import Instafeed from 'react-instafeed';
 
-import { InstaContainer, LargeColumn, SmallColumn } from '../components/Styles/MainStyles';
+import Instagram from '../components/Main/Instagram';
+import Testimonial from '../components/Main/Testimonial';
+
+import { LargeColumn, SmallColumn } from '../components/Styles/MainStyles';
 import {
   AboutIntro,
   FeatureWrapper,
@@ -10,60 +13,107 @@ import {
   AboutProfile,
   AboutCollab,
   AboutHeader,
-  Testimonial,
 } from '../components/Styles/AboutStyles';
 
-class about extends Component {
-  render() {
-    const instafeedTarget = 'instafeed';
-    const { data } = this.props;
+const about = ({
+  data: {
+    contentfulAbout: {
+      aboutPageTop,
+      aboutPageFeature,
+      aboutPageTitle,
+      aboutPageProfile,
+      aboutPageDevTitle,
+      aboutPageCollaborator,
+    },
+    contentfulTestimonial: {
+      ...testimony
+    },
+  },
+}) => (
+  <div>
+    <AboutIntro>{aboutPageTop.aboutPageTop}</AboutIntro>
+    <FeatureWrapper>
+      <LargeColumn>
+        <Img sizes={aboutPageFeature.sizes} alt={aboutPageFeature.description} />
+      </LargeColumn>
+      <SmallColumn>
+        <AboutTitle>{aboutPageTitle}</AboutTitle>
+      </SmallColumn>
+    </FeatureWrapper>
+    <AboutProfile>{aboutPageProfile.aboutPageProfile}</AboutProfile>
+    <AboutHeader>{aboutPageDevTitle}</AboutHeader>
+    <AboutCollab>{aboutPageCollaborator.aboutPageCollaborator}</AboutCollab>
+    <Testimonial {...testimony} />
+    <AboutHeader>@vero.lagarde</AboutHeader>
+    <Instagram />
+  </div>
+);
 
-    return (
-      <div>
-        <AboutIntro>{data.contentfulAbout.aboutPageTop.aboutPageTop}</AboutIntro>
-        <FeatureWrapper>
-          <LargeColumn>
-            <Img sizes={data.contentfulAbout.aboutPageFeature.sizes} alt={data.contentfulAbout.aboutPageFeature.description} />
-          </LargeColumn>
-          <SmallColumn>
-            <AboutTitle>{data.contentfulAbout.aboutPageTitle}</AboutTitle>
-          </SmallColumn>
-        </FeatureWrapper>
-        <AboutProfile>{data.contentfulAbout.aboutPageProfile.aboutPageProfile}</AboutProfile>
-        <AboutHeader>{data.contentfulAbout.aboutPageDevTitle}</AboutHeader>
-        <AboutCollab>{data.contentfulAbout.aboutPageCollaborator.aboutPageCollaborator}</AboutCollab>
-        <Testimonial>
-          {/* data.contentfulTestimonial.map((testimonial, index) => ( */
-            <p>{`${data.contentfulTestimonial.quote.quote} - ${data.contentfulTestimonial.clientName}, ${data.contentfulTestimonial.organisation}`}</p>
-          /* )) */ }
-        </Testimonial>
-        <AboutHeader>@vero.lagarde</AboutHeader>
-        <InstaContainer id={instafeedTarget}>
-          <Instafeed
-            limit="6"
-            ref="instafeed"
-            resolution="low_resolution"
-            sortBy="most-recent"
-            target={instafeedTarget}
-            template="
-              <a href='{{link}}' target='_blank' class='instafeed__item'>
-                <img class='instafeed__item__background' src='{{image}}' />
-               </a>"
-            userId={`${process.env.GATSBY_INSTAGRAM_USER_ID}`}
-            clientId={`${process.env.GATSBY_INSTAGRAM_CLIENT_ID}`}
-            accessToken={`${process.env.GATSBY_INSTAGRAM_ACCESS_TOKEN}`}
-          />
-        </InstaContainer>
-      </div>
-    );
-  }
-}
+about.propTypes = {
+  data: PropTypes.shape({
+    contentfulAbout: {
+      aboutPageTop: PropTypes.shape({
+        aboutPageTop: PropTypes.string,
+      }),
+      aboutPageFeature: PropTypes.shape({
+        description: PropTypes.string,
+        sizes: PropTypes.object,
+      }),
+      aboutPageTitle: PropTypes.string,
+      aboutPageProfile: PropTypes.shape({
+        aboutPageProfile: PropTypes.string,
+      }),
+      aboutPageDevTitle: PropTypes.string,
+      aboutPageCollaborator: PropTypes.shape({
+        aboutPageCollaborator: PropTypes.string,
+      }),
+    }.isRequired,
+    contentfulTestimonial: PropTypes.object.isRequired,
+  }).isRequired,
+};
 
 export const query = graphql`
 query AboutPageTest($locale: String!) {
   contentfulAbout(node_locale: { eq: $locale }) {
-    ...AboutData
+    ...AboutIndexData
     node_locale
+    id
+    title
+    location
+    services {
+      id
+      services
+    }
+    portfolio {
+      id
+      portfolio
+    }
+    introPage {
+      id
+      introPage
+    }
+    aboutPageTop {
+      aboutPageTop
+      id
+    }
+    aboutPageTitle
+    aboutPageProfile {
+      id
+      aboutPageProfile
+    }
+    aboutPageCollaborator {
+      id
+      aboutPageCollaborator
+    }
+    aboutPageFeature {
+      id
+      description
+      sizes ( maxWidth: 1000 ) {
+        ...GatsbyContentfulSizes
+      }
+    }
+    aboutPageDevTitle
+    slug
   }
   contentfulTestimonial(node_locale: { eq: $locale }) {
     clientName

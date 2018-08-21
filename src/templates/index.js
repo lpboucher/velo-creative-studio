@@ -1,19 +1,49 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import PropTypes from 'prop-types';
 
 import About from '../components/Main/About';
 
 import { HomeWrapper } from '../components/Styles/MainStyles';
 
-const IndexPage = ({ data, location, pathContext }) => (
+const IndexPage = ({
+  data: {
+    contentfulAbout,
+  },
+  location,
+  pathContext: {
+    locale,
+  },
+}) => (
   <HomeWrapper>
-    <About about={data.contentfulAbout} location={location} locale={pathContext.locale} />
+    <About about={contentfulAbout} location={location} locale={locale} />
   </HomeWrapper>
 );
+
+IndexPage.defaultProps = {
+  pathContext: {
+    locale: 'en-US',
+  },
+  location: {
+    pathname: '/en-US',
+  },
+};
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    contentfulAbout: PropTypes.object,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }),
+  pathContext: PropTypes.shape({
+    locale: PropTypes.string,
+  }),
+};
+
 export const query = graphql`
   query SiteMainTest($locale: String!) {
     contentfulAbout(node_locale: { eq: $locale }) {
-      ...AboutData
+      ...AboutIndexData
       seoTitle
       seoDescription {
       seoDescription
