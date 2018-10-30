@@ -130,7 +130,7 @@ export const Intro = styled.div`
     font-weight: 300;
     line-height: 1.5;
     font-size: 22px;
-    padding: 40px 40% 40px 40px;
+    padding: 40px 35% 40px 40px;
 
     @media (max-width: 900px) {
         padding-right: 20%;
