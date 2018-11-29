@@ -299,4 +299,5 @@ export const ProjectDetail = styled.div`
                 margin-top: -10%;
             }
         }
+    }
 `;
