@@ -155,8 +155,9 @@ export const ProjectMasonry = styled.div`
     column-gap: 0;
     display: grid;
     grid-auto-rows: 300px;
+    grid-auto-flow: column;
     grid-gap: 40px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, 2, 1fr);
     
     & > * {
         break-inside: avoid;
@@ -237,7 +238,7 @@ export const ProjectMasonry = styled.div`
             }
         }
 
-        &:nth-child(8) {
+        &:nth-child(7) {
             grid-row: span 1;
             grid-column: 1 / span 1;
 
@@ -247,7 +248,7 @@ export const ProjectMasonry = styled.div`
             }
         }
 
-        &:nth-child(7) {
+        &:nth-child(8) {
             grid-row: span 2;
             grid-column: 2 / span 1;
 
