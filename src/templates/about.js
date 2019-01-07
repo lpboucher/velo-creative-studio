@@ -25,9 +25,7 @@ const about = ({
       aboutPageDevTitle,
       aboutPageCollaborator,
     },
-    contentfulTestimonial: {
-      ...testimony
-    },
+    allContentfulTestimonial,
   },
 }) => (
   <div>
@@ -43,7 +41,14 @@ const about = ({
     <AboutProfile>{aboutPageProfile.aboutPageProfile}</AboutProfile>
     <AboutHeader>{aboutPageDevTitle}</AboutHeader>
     <AboutCollab>{aboutPageCollaborator.aboutPageCollaborator}</AboutCollab>
-    <Testimonial {...testimony} />
+    {allContentfulTestimonial.edges.map(({ node }) => (
+      <Testimonial
+        key={node.quote.id}
+        clientName={node.clientName}
+        organisation={node.organisation}
+        quote={node.quote.quote}
+      />
+    ))}
     <AboutHeader>@vero.lagarde</AboutHeader>
     <Instagram />
   </div>
@@ -68,7 +73,7 @@ about.propTypes = {
         aboutPageCollaborator: PropTypes.string,
       }),
     }.isRequired,
-    contentfulTestimonial: PropTypes.object.isRequired,
+    allContentfulTestimonial: PropTypes.object.isRequired,
   }).isRequired,
 };
 
@@ -115,12 +120,13 @@ query AboutPageTest($locale: String!) {
     aboutPageDevTitle
     slug
   }
-  contentfulTestimonial(node_locale: { eq: $locale }) {
-    clientName
-    organisation
-    quote {
-      id
-      quote
+  allContentfulTestimonial(
+    filter: {node_locale: { eq: $locale }}
+  ) {
+    edges {
+      node {
+        ...TestimonialData
+      }
     }
   }
 }
