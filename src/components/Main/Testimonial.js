@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 
 import { TestimonialContainer } from '../Styles/AboutStyles';
 
-const Testimonial = ({ clientName, organisation, quote }) => (
+const Testimonial = ({
+  clientName,
+  organisation,
+  quote,
+}) => (
   <TestimonialContainer>
-    {/* data.contentfulTestimonial.map((testimonial, index) => ( */
-      <p>{`${quote.quote} - ${clientName}, ${organisation}`}</p>
-        /* )) */ }
+    <p>{`${quote} - ${clientName}, ${organisation}`}</p>
   </TestimonialContainer>
 );
 
@@ -23,5 +25,16 @@ Testimonial.propTypes = {
     quote: PropTypes.string,
   }).isRequired,
 };
+
+export const query = graphql`
+  fragment TestimonialData on ContentfulTestimonial {
+    clientName
+    organisation
+    quote {
+      id
+      quote
+    }
+  }
+`;
 
 export default Testimonial;
