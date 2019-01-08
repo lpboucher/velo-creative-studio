@@ -178,7 +178,8 @@ export const ProjectMasonry = styled.div`
             }
         }
 
-        &:nth-child(1) {
+        &:nth-child(1),
+        &:nth-child(9) {
             grid-row: span 2;
             grid-column: 1 / span 1;
 
@@ -188,7 +189,8 @@ export const ProjectMasonry = styled.div`
             }
         }
 
-        &:nth-child(2) {
+        &:nth-child(2),
+        &:nth-child(10) {
             grid-row: span 1;
             grid-column: 2 / span 1;
 
@@ -198,7 +200,8 @@ export const ProjectMasonry = styled.div`
             }
         }
 
-        &:nth-child(3) {
+        &:nth-child(3),
+        &:nth-child(11) {
             grid-row: span 1;
             grid-column: 2 / span 1;
 
@@ -208,7 +211,8 @@ export const ProjectMasonry = styled.div`
             }
         }
 
-        &:nth-child(4) {
+        &:nth-child(4),
+        &:nth-child(12) {
             grid-row: span 1;
             grid-column: 1 / span 1;
 
@@ -218,7 +222,8 @@ export const ProjectMasonry = styled.div`
             }
         }
 
-        &:nth-child(5) {
+        &:nth-child(5),
+        &:nth-child(13) {
             grid-row: span 1;
             grid-column: 2 / span 1;
 
@@ -228,7 +233,8 @@ export const ProjectMasonry = styled.div`
             }
         }
 
-        &:nth-child(6) {
+        &:nth-child(6),
+        &:nth-child(14) {
             grid-row: span 1;
             grid-column: 1 / span 1;
 
@@ -238,7 +244,8 @@ export const ProjectMasonry = styled.div`
             }
         }
 
-        &:nth-child(7) {
+        &:nth-child(7),
+        &:nth-child(15) {
             grid-row: span 1;
             grid-column: 1 / span 1;
 
@@ -248,7 +255,8 @@ export const ProjectMasonry = styled.div`
             }
         }
 
-        &:nth-child(8) {
+        &:nth-child(8),
+        &:nth-child(16) {
             grid-row: span 2;
             grid-column: 2 / span 1;
 
