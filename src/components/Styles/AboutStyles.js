@@ -65,7 +65,7 @@ export const AboutCollab = Intro.extend`
 `;
 
 export const AboutHeader = styled.h2`
-    padding: 0 40px;
+    padding: 20px 40px 0;
     font-size: 20px;
 
     &:first-of-type {
@@ -74,8 +74,12 @@ export const AboutHeader = styled.h2`
 `;
 
 export const TestimonialContainer = styled.div`
-    padding: 20px 20px 10px;
+    padding: 20px 20px;
     text-align: left;
     font-size: 14px;
     background-color: #fafafa;
+
+    & > p {
+        margin-bottom: 0;
+    }
 `;
