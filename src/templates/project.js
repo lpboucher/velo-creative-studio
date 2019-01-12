@@ -33,9 +33,8 @@ export default function Template({
       <Helmet
         title={seoTitle}
       >
-        <meta name="description" content={seoDescription.seoDescription} />
-        <meta property="og:description" content={seoDescription.seoDescription} />
-        <meta property="og:image" content={feature.file.url} />
+        <meta name="description" property="og:description" content={seoDescription.seoDescription} />
+        <meta name="image" property="og:image" content={feature.file.url} />
       </Helmet>
       <ProjectWrapper>
         <ProjectTitle>
