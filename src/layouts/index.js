@@ -30,20 +30,18 @@ const TemplateWrapper = ({ children, data, location }) => {
       <div>
         <Helmet
           title={data.contentfulAbout.seoTitle}
-          meta={[
-            { name: 'description', content: data.contentfulAbout.seoDescription.seoDescription },
-            { property: 'og:title', content: data.contentfulAbout.seoTitle },
-            { property: 'og:site_name', content: 'velocreative.studio' },
-            { property: 'og:type', content: 'website' },
-            { property: 'og:url', content: 'https://velocreative.studio/' },
-            { property: 'og:description', content: data.contentfulAbout.seoDescription.seoDescription },
-            { property: 'og:image', content: data.contentfulAbout.featureImage.file.url },
-          ]}
-
           link={[
             { rel: 'shortcut icon', type: 'image/png', href: `${logo}` },
           ]}
-        />
+        >
+          <meta name="description" content={data.contentfulAbout.seoDescription.seoDescription} />
+          <meta property="og:title" content={data.contentfulAbout.seoTitle} />
+          <meta property="og:site_name" content="velocreative.studio" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://velocreative.studio/" />
+          <meta property="og:description" content={data.contentfulAbout.seoDescription.seoDescription} />
+          <meta property="og:image" content={data.contentfulAbout.featureImage.file.url} />
+        </Helmet>
         <Header
           nav={data.allContentfulNavigation}
           location={location}

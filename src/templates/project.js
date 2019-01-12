@@ -32,10 +32,11 @@ export default function Template({
     <div>
       <Helmet
         title={seoTitle}
-        meta={[
-        { name: 'description', content: seoDescription.seoDescription },
-      ]}
-      />
+      >
+        <meta name="description" content={seoDescription.seoDescription} />
+        <meta property="og:description" content={seoDescription.seoDescription} />
+        <meta property="og:image" content={feature.file.url} />
+      </Helmet>
       <ProjectWrapper>
         <ProjectTitle>
           <h1>{title} | {location}</h1>
@@ -98,6 +99,9 @@ export const projectQuery = graphql`
                 title
                 sizes ( maxWidth: 1000 ) {
                   ...GatsbyContentfulSizes
+                }
+                file {
+                  url
                 }
             }
             previews {
