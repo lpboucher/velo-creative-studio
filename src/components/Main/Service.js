@@ -3,11 +3,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
-import Img from 'gatsby-image';
 
 import ListingCategory from '../Main/ListingCategory';
+import FeaturedSlider from '../Main/FeaturedSlider';
 
-import { ServiceContainer, ServiceTitle, ServiceWrapper, ServiceFeature } from '../Styles/ServiceStyles';
+import { ServiceContainer, ServiceTitle, ServiceWrapper } from '../Styles/ServiceStyles';
 import { ContactAnchor } from '../Styles/MainStyles';
 
 const Service = ({
@@ -18,7 +18,7 @@ const Service = ({
     categories,
     contactButton,
     projectButton,
-    serviceFeature,
+    serviceFeatures,
   },
   index,
   locale,
@@ -34,9 +34,7 @@ const Service = ({
       <ContactAnchor count={index + 1}><Link to={`/${locale}/contact`}>{contactButton}</Link></ContactAnchor>
       <ContactAnchor count={index + 1}><Link to={`/${locale}/portfolio`}>{projectButton}</Link></ContactAnchor>
     </ServiceContainer>
-    <ServiceFeature title={title} index={index + 1} >
-      <Img sizes={serviceFeature.sizes} alt={serviceFeature.description} />
-    </ServiceFeature>
+    <FeaturedSlider features={serviceFeatures} />
   </ServiceWrapper>
 );
 
@@ -56,9 +54,7 @@ Service.propTypes = {
     categories: PropTypes.arrayOf(PropTypes.shape).isRequired,
     contactButton: PropTypes.string,
     projectButton: PropTypes.string,
-    serviceFeature: PropTypes.shape({
-      sizes: PropTypes.object,
-    }),
+    serviceFeatures: PropTypes.arrayOf(PropTypes.shape).isRequired,
   }).isRequired,
   index: PropTypes.number.isRequired,
   locale: PropTypes.string,
@@ -87,6 +83,7 @@ export const query = graphql`
     }
     contactButton
     projectButton
+    ...SliderPreviews
   }
 `;
 

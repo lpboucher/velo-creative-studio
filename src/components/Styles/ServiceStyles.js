@@ -46,6 +46,10 @@ export const ServiceContainer = styled.div`
 `;
 
 export const ServiceWrapper = styled.div`
+    & > .slick-slider {
+        line-height: 0;
+    }
+
     &:nth-of-type(2) {
         & > ${ServiceContainer} {
             background-color: #fafafa;
@@ -134,7 +138,6 @@ export const ServiceWrapper = styled.div`
 `;
 
 export const ServiceFeature = styled.div`
-    display: ${props => (props.index >= 3 ? 'none' : 'block')};
     height: 48vh;
 `;
 
