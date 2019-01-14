@@ -48,6 +48,7 @@ export const ServiceContainer = styled.div`
 export const ServiceWrapper = styled.div`
     & > .slick-slider {
         line-height: 0;
+        padding: 10px;
     }
 
     &:nth-of-type(2) {
@@ -139,6 +140,10 @@ export const ServiceWrapper = styled.div`
 
 export const ServiceFeature = styled.div`
     height: 48vh;
+
+    & img {
+        padding: 0 10px;
+    }
 `;
 
 export const ServiceCategories = styled.div`
