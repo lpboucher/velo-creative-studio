@@ -74,7 +74,7 @@ export const AboutHeader = styled.h2`
 `;
 
 export const TestimonialContainer = styled.div`
-    padding: 20px 25px;
+    padding: 20px 40px;
     text-align: left;
     font-size: 14px;
     background-color: #fafafa;
