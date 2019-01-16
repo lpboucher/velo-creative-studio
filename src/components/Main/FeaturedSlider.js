@@ -1,6 +1,8 @@
 import React from 'react';
-import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
+import Link from 'gatsby-link';
+import Overdrive from 'react-overdrive';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -18,10 +20,14 @@ const FeaturedSlider = ({ features }) => {
   };
   return (
     <Slider {...settings}>
-      {features.map(({ feature }) => (
-        <ServiceFeature key={feature.id}>
-          <Img sizes={feature.sizes} alt={feature.title} />
-        </ServiceFeature>
+      {features.map(({ feature, node_locale, slug }) => (
+        <Overdrive id={feature.id}>
+          <ServiceFeature key={feature.id}>
+            <Link to={`/${node_locale}/portfolio/${slug}`}>
+              <Img sizes={feature.sizes} alt={feature.title} />
+            </Link>
+          </ServiceFeature>
+        </Overdrive>
     ))}
     </Slider>
   );
@@ -46,6 +52,8 @@ fragment SliderPreviews on ContentfulService {
                 ...GatsbyContentfulSizes
             }
         }
+        slug
+        node_locale
     }
   }
 `;

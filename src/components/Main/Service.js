@@ -34,7 +34,7 @@ const Service = ({
       <ContactAnchor count={index + 1}><Link to={`/${locale}/contact`}>{contactButton}</Link></ContactAnchor>
       <ContactAnchor count={index + 1}><Link to={`/${locale}/portfolio`}>{projectButton}</Link></ContactAnchor>
     </ServiceContainer>
-    <FeaturedSlider features={serviceFeatures} />
+    <FeaturedSlider features={serviceFeatures} locale={locale} />
   </ServiceWrapper>
 );
 
