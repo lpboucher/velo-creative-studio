@@ -34,7 +34,7 @@ const Service = ({
       <ContactAnchor count={index + 1}><Link to={`/${locale}/contact`}>{contactButton}</Link></ContactAnchor>
       <ContactAnchor count={index + 1}><Link to={`/${locale}/portfolio`}>{projectButton}</Link></ContactAnchor>
     </ServiceContainer>
-    <FeaturedSlider features={serviceFeatures} locale={locale} />
+    <FeaturedSlider features={serviceFeatures} />
   </ServiceWrapper>
 );
 
@@ -83,7 +83,11 @@ export const query = graphql`
     }
     contactButton
     projectButton
-    ...SliderPreviews
+    serviceFeatures {
+      ...SliderPreviews
+      slug
+      node_locale
+    }
   }
 `;
 

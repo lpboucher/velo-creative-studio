@@ -43,17 +43,13 @@ FeaturedSlider.propTypes = {
 };
 
 export const query = graphql`
-fragment SliderPreviews on ContentfulService {
-    serviceFeatures {
-        feature {
-            id
-            title
-            sizes ( maxWidth: 1000 ) {
-                ...GatsbyContentfulSizes
-            }
+fragment SliderPreviews on ContentfulProject {
+    feature {
+        id
+        title
+        sizes ( maxWidth: 1000 ) {
+            ...GatsbyContentfulSizes
         }
-        slug
-        node_locale
     }
   }
 `;
