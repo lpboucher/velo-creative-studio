@@ -140,10 +140,6 @@ export const ServiceWrapper = styled.div`
 
 export const ServiceFeature = styled.div`
     height: 48vh;
-
-    & img {
-        padding: 0 10px;
-    }
 `;
 
 export const ServiceCategories = styled.div`
