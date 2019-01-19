@@ -30,6 +30,9 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           services: contentfulAbout(node_locale: { eq: "${locale}" }) {
             node_locale
           }
+          hotel: contentfulAbout(node_locale: { eq: "${locale}" }) {
+            node_locale
+          }
           projects: allContentfulProject(filter: {node_locale: { eq: "${locale}" } }) {
             edges {
               node {
@@ -40,7 +43,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           }
         }
       `).then((result) => {
-      ['about', 'contact', 'portfolio', 'services'].forEach((template) => {
+      ['about', 'contact', 'portfolio', 'services', 'hotel'].forEach((template) => {
         const page = result.data[template];
         const prefix = page.node_locale;
         createPage({
