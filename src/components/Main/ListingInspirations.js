@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
-import { HotelMasonry } from '../Styles/HotelStyles';
+import { AddServiceMasonry } from '../Styles/AddOnServiceStyles';
 
 const ListingInspirations = ({ inspirations }) => (
-  <HotelMasonry>
+  <AddServiceMasonry>
     {inspirations.map(({ sizes, description, id }) => (
       <Img key={id} sizes={sizes} alt={description} />
 ))}
-  </HotelMasonry>
+  </AddServiceMasonry>
 );
 
 ListingInspirations.propTypes = {
