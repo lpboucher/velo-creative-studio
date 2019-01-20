@@ -48,7 +48,6 @@ export const ServiceContainer = styled.div`
 export const ServiceWrapper = styled.div`
     & > .slick-slider {
         line-height: 0;
-        padding: 10px;
     }
 
     &:nth-of-type(2) {

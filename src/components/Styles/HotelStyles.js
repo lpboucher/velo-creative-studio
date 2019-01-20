@@ -26,7 +26,7 @@ export const HotelContainer = styled.div`
 
     & > h5 {
         font-weight: 500;
-        margin-top: 20px;
+        margin-top: 60px;
     }
 
     & > p {

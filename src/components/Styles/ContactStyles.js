@@ -6,7 +6,7 @@ export const ContactWrapper = styled.div`
     display: flex;
 
     & > ${TwoColumn}:first-child {
-        padding: 40px;
+        padding: 40px 40px 0;
     }
 `;
 
@@ -66,7 +66,7 @@ export const FormMessage = styled.textarea`
 
 export const FormButton = styled.button`
     width: 40%;
-    background-color: black;
+    background-color: #c4bbab;
     color: white;
     text-transform: uppercase;
     margin-top: 40px;
@@ -75,6 +75,7 @@ export const FormButton = styled.button`
 export const ContactForm = styled.form`
     display: flex;
     flex-direction: column;
+    margin-bottom: 0;
 
     & > * {
         padding: 10px 0;
