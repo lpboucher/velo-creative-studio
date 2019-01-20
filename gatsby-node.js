@@ -30,10 +30,15 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           services: contentfulAbout(node_locale: { eq: "${locale}" }) {
             node_locale
           }
-          hotel: contentfulAbout(node_locale: { eq: "${locale}" }) {
-            node_locale
-          }
           projects: allContentfulProject(filter: {node_locale: { eq: "${locale}" } }) {
+            edges {
+              node {
+                slug
+                node_locale
+              }
+            }
+          }
+          specialServices: allContentfulSpecialOffering(filter: {node_locale: { eq: "${locale}" } }) {
             edges {
               node {
                 slug
@@ -43,7 +48,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           }
         }
       `).then((result) => {
-      ['about', 'contact', 'portfolio', 'services', 'hotel'].forEach((template) => {
+      ['about', 'contact', 'portfolio', 'services'].forEach((template) => {
         const page = result.data[template];
         const prefix = page.node_locale;
         createPage({
@@ -59,6 +64,19 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         createPage({
           path: p,
           component: path.resolve('./src/templates/project.js'),
+          context: {
+            slug: item.node.slug,
+            locale: item.node.node_locale,
+          },
+        });
+      });
+
+      result.data.specialServices.edges.forEach((item) => {
+        const prefix = item.node.node_locale;
+        const p = `/${prefix}/services/${item.node.slug}`;
+        createPage({
+          path: p,
+          component: path.resolve('./src/templates/specialservices.js'),
           context: {
             slug: item.node.slug,
             locale: item.node.node_locale,
