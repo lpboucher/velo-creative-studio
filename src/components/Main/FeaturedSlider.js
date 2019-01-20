@@ -20,14 +20,16 @@ const FeaturedSlider = ({ features }) => {
   };
   return (
     <Slider {...settings}>
-      {features.map(({ feature, node_locale, slug }) => (
-        <Overdrive id={feature.id}>
-          <ServiceFeature key={feature.id}>
-            <Link to={`/${node_locale}/portfolio/${slug}`}>
-              <Img sizes={feature.sizes} alt={feature.title} />
-            </Link>
-          </ServiceFeature>
-        </Overdrive>
+      {features.map(({
+ feature, node_locale, slug, id,
+}) => (
+  <Overdrive id={id}>
+    <ServiceFeature key={feature.id}>
+      <Link to={`/${node_locale}/portfolio/${slug}`}>
+        <Img sizes={feature.sizes} alt={feature.title} />
+      </Link>
+    </ServiceFeature>
+  </Overdrive>
     ))}
     </Slider>
   );
@@ -44,7 +46,8 @@ FeaturedSlider.propTypes = {
 
 export const query = graphql`
 fragment SliderPreviews on ContentfulProject {
-    feature {
+  id  
+  feature {
         id
         title
         sizes ( maxWidth: 1000 ) {
