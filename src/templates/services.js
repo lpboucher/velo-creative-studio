@@ -4,7 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Overdrive from 'react-overdrive';
 
-import Package from '../components/Main/Package';
 import Service from '../components/Main/Service';
 import { ServiceIntro } from '../components/Styles/ServiceStyles';
 
@@ -18,9 +17,6 @@ const ServicePage = ({
       node_locale,
       services,
     },
-    contentfulBrandKit: {
-      ...brandKit
-    },
   },
 }) => (
   <div>
@@ -32,7 +28,6 @@ const ServicePage = ({
     {allContentfulService.edges.map(({ node }, index) => (
       <Service key={node.id} service={node} locale={locale} index={index} />
     ))}
-    <Package {...brandKit} />
   </div>
 );
 
@@ -47,7 +42,6 @@ ServicePage.propTypes = {
         services: PropTypes.string,
       }),
     }).isRequired,
-    contentfulBrandkit: PropTypes.object,
   }).isRequired,
 };
 
@@ -70,10 +64,6 @@ query ServicePageTest($locale: String!) {
     services {
       services
     }
-  }
-  contentfulBrandKit (node_locale: { eq: $locale }) {
-    ...PackageData
-    node_locale
   }
 }
 `;
