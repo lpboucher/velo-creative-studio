@@ -6,6 +6,7 @@ import Link from 'gatsby-link';
 
 import ListingCategory from '../Main/ListingCategory';
 import FeaturedSlider from '../Main/FeaturedSlider';
+import ServiceDesc from '../Main/ServiceDesc';
 
 import { ServiceContainer, ServiceTitle, ServiceWrapper } from '../Styles/ServiceStyles';
 import { ContactAnchor } from '../Styles/MainStyles';
@@ -25,11 +26,9 @@ const Service = ({
 }) => (
   <ServiceWrapper key={id}>
     <ServiceContainer key={id}>
-      <ServiceTitle><span>0{index + 1}</span><span>{title}</span></ServiceTitle>
-      <p dangerouslySetInnerHTML={{
-              __html: description.childMarkdownRemark.html,
-            }}
-      />
+      <ServiceDesc description={description}>
+        <ServiceTitle><span>0{index + 1}</span><span>{title}</span></ServiceTitle>
+      </ServiceDesc>
       <ListingCategory categories={categories} />
       <ContactAnchor count={index + 1}><Link to={`/${locale}/contact`}>{contactButton}</Link></ContactAnchor>
       <ContactAnchor count={index + 1}><Link to={`/${locale}/portfolio`}>{projectButton}</Link></ContactAnchor>
