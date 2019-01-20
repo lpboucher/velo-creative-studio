@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 import { Intro, TwoColumn } from './MainStyles';
 
-export const HotelIntro = Intro.extend`
+export const AddServiceIntro = Intro.extend`
 `;
 
-export const HotelWrapper = styled.div`
+export const AddServiceWrapper = styled.div`
     display: flex;
 
     & > ${TwoColumn}:first-child {
@@ -13,7 +13,7 @@ export const HotelWrapper = styled.div`
     }
 `;
 
-export const HotelContainer = styled.div`
+export const AddServiceContainer = styled.div`
     padding: 40px;
 
     & > * {
@@ -35,7 +35,7 @@ export const HotelContainer = styled.div`
     }
 `;
 
-export const HotelMasonry = styled.div`
+export const AddServiceMasonry = styled.div`
     padding: 0 20px;
     column-count: 2;
     column-gap: 0;
