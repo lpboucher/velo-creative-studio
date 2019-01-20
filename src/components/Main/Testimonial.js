@@ -21,9 +21,7 @@ Testimonial.defaultProps = {
 Testimonial.propTypes = {
   clientName: PropTypes.string,
   organisation: PropTypes.string,
-  quote: PropTypes.shape({
-    quote: PropTypes.string,
-  }).isRequired,
+  quote: PropTypes.string.isRequired,
 };
 
 export const query = graphql`
