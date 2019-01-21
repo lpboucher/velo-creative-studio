@@ -70,6 +70,7 @@ export const AboutHeader = styled.h2`
 
     &:first-of-type {
         margin-bottom: 0;
+        padding-top: 0;
     }
 `;
 
@@ -81,5 +82,9 @@ export const TestimonialContainer = styled.div`
 
     & > p {
         margin-bottom: 0;
+    }
+
+    &:nth-of-type(2) {
+        background:red;
     }
 `;
