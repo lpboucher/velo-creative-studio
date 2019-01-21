@@ -69,6 +69,15 @@ font-weight: 300;
 letter-spacing: 2px;
 `;
 
+export const StyledTopMenu = styled.a`
+color: #4a4a4a;
+text-decoration: none;
+font-size: 16px;
+font-weight: 300;
+letter-spacing: 2px;
+cursor: pointer;
+`;
+
 export const StyledLogo = styled(Link)`
 text-decoration: none;
 font-size: 16px;
@@ -90,7 +99,8 @@ color: ${props => (props.location.pathname === '/en-us' ||
 export const StyledNavItem = styled.li`
   margin: 0 20px;
 
-  & > ${StyledLink} {
+  & > ${StyledLink},
+  & > ${StyledTopMenu} {
     text-transform: uppercase;
     font-size: 13px;
   }
@@ -129,4 +139,15 @@ export const LanguageSelect = styled.ul`
       margin: 0 20px;
     }
   }
+`;
+
+export const SubContainer = styled.div`
+  position: absolute;
+  height: 10vh;
+  width: 100vw;
+  padding: 20px 40px;
+  transform: ${props => (props.isOpen ? 'translate3d(0vw, 0, 0)' : 'translate3d(-100vw, 0, 0)')};
+  transition: transform .4s cubic-bezier(0, .52, 0, 1);
+  left: 0;
+  top: 10%;
 `;
