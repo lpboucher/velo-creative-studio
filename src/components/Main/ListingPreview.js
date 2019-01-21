@@ -7,8 +7,8 @@ import { ProjectMasonry, ProjectOverlay } from '../Styles/ProjectStyles';
 const ListingPreview = ({ previews }) => (
   <ProjectMasonry>
     {previews.map(({ sizes, description, id }) => (
-      <div>
-        <Img key={id} sizes={sizes} alt={description} />
+      <div key={id}>
+        <Img sizes={sizes} alt={description} />
         <ProjectOverlay >{description}</ProjectOverlay>
       </div>
 ))}
