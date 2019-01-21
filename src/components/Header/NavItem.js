@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledNavItem, StyledLink } from '../Styles/HeaderStyles';
+import { StyledNavItem, StyledLink, StyledTopMenu } from '../Styles/HeaderStyles';
 
-const NavItem = ({ item, reset, locale }) => (
+const NavItem = ({
+  children, item, reset, locale, toggleDrawer,
+}) => (
   <StyledNavItem>
-    <StyledLink to={`/${locale}${item.path}`} onClick={reset}>{item.text}</StyledLink>
+    {!item.hasSubMenu ?
+      <StyledLink to={`/${locale}${item.path}`} onClick={reset}>{item.text}</StyledLink>
+    :
+      <StyledTopMenu onClick={toggleDrawer}>{item.text}</StyledTopMenu>
+    }
+    {children}
   </StyledNavItem>
 );
 
@@ -14,8 +21,10 @@ NavItem.defaultProps = {
 };
 
 NavItem.propTypes = {
+  children: PropTypes.element.isRequired,
   locale: PropTypes.string,
   reset: PropTypes.func.isRequired,
+  toggleDrawer: PropTypes.func.isRequired,
   item: PropTypes.shape({
     id: PropTypes.string,
     node_locale: PropTypes.string,
@@ -34,6 +43,10 @@ export const query = graphql`
     order
     visible
     node_locale
+    hasSubMenu
+    subMenu {
+      ...SecondNavData
+    }
   }
 `;
 
