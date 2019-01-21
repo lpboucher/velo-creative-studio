@@ -150,4 +150,13 @@ export const SubContainer = styled.div`
   transition: transform .4s cubic-bezier(0, .52, 0, 1);
   left: 0;
   top: 10%;
+
+  @media (max-width: 900px) {
+    width: 50vw;
+    left: 40%;
+
+    & > ${StyledNavList} {
+      display: block;
+    }
+  }
 `;
