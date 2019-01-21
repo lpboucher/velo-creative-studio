@@ -24,10 +24,10 @@ SubNav.propTypes = {
   locale: PropTypes.string,
   toggleDrawer: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  subMenu: PropTypes.arrayOf({
+  subMenu: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string,
     path: PropTypes.string,
-  }).isRequired,
+  })).isRequired,
 };
 
 export const query = graphql`
