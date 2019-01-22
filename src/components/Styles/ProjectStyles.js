@@ -266,8 +266,7 @@ export const ProjectOverlay = styled.div`
     @media (min-width: 960px) {
     ${ProjectMasonry} > *:hover & {
                 display: ${props => (props.hasDesc ? 'block' : 'none')};
-                opacity: ${props => (props.hasDesc ? 0.5 : 0)};
-                background-color: ${props => (props.hasDesc ? 'white' : 'none')};
+                background: ${props => (props.hasDesc ? 'rgb(255,255,255,0.5)' : 'none')};
             }
         }
 `;
