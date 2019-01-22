@@ -15,7 +15,7 @@ const ProjectBrick = ({ brick, locale }) => {
           <Img sizes={brick.feature.sizes} alt={brick.feature.description} />
         </Link>
       </Overdrive>
-      <ProjectOverlay>{brick.title}</ProjectOverlay>
+      <ProjectOverlay hasDesc={brick.title !== ''} >{brick.title}</ProjectOverlay>
     </div>
   );
 };

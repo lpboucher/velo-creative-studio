@@ -9,7 +9,7 @@ const ListingPreview = ({ previews }) => (
     {previews.map(({ sizes, description, id }) => (
       <div key={id}>
         <Img sizes={sizes} alt={description} />
-        <ProjectOverlay >{description}</ProjectOverlay>
+        <ProjectOverlay hasDesc={description !== ''} >{description}</ProjectOverlay>
       </div>
 ))}
   </ProjectMasonry>

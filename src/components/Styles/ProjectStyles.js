@@ -139,16 +139,6 @@ export const Description = styled.div`
     }
 `;
 
-export const ProjectOverlay = styled.div`
-    display: none;
-    position: absolute !important;
-    top: 20px;
-    left: 5%;
-    z-index: 2;
-    font-size: 12px;
-    text-transform: uppercase;
-`;
-
 export const ProjectMasonry = styled.div`
     padding: 0 40px 40px;
     column-count: 2;
@@ -166,15 +156,12 @@ export const ProjectMasonry = styled.div`
         -moz-column-break-inside: avoid;
         position: relative;
 
-        & > * {
+        & > div:first-child {
             height: 100%;
         }
         @media (min-width: 960px) {
             &:hover .gatsby-image-outer-wrapper {
                 opacity: 0.5;
-            }
-            &:hover ${ProjectOverlay} {
-                display: block;
             }
         }
 
@@ -266,6 +253,22 @@ export const ProjectMasonry = styled.div`
             }
         }
     }
+`;
+
+export const ProjectOverlay = styled.div`
+    display: none;
+    position: absolute !important;
+    top: 20px;
+    left: 5%;
+    z-index: 2;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    @media (min-width: 960px) {
+    ${ProjectMasonry} > *:hover & {
+                display: ${props => (props.hasDesc ? 'block' : 'none')};
+            }
+        }
 `;
 
 export const ProjectDetail = styled.div`
