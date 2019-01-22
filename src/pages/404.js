@@ -1,9 +1,11 @@
 import React from 'react';
 
 const NotFoundPage = () => (
-  <div>
+  <div style={{
+ height: '90vh', 'background-color': '#f2f2f0', 'text-align': 'center', padding: '60px',
+}}>
     <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <p>The page you were looking for does not exist.</p>
   </div>
 );
 
