@@ -159,11 +159,6 @@ export const ProjectMasonry = styled.div`
         & > div:first-child {
             height: 100%;
         }
-        @media (min-width: 960px) {
-            &:hover .gatsby-image-outer-wrapper {
-                opacity: 0.5;
-            }
-        }
 
         &:nth-child(1),
         &:nth-child(9) {
@@ -258,15 +253,21 @@ export const ProjectMasonry = styled.div`
 export const ProjectOverlay = styled.div`
     display: none;
     position: absolute !important;
-    top: 20px;
-    left: 5%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
     z-index: 2;
     font-size: 12px;
     text-transform: uppercase;
+    pointer-events: none;
 
     @media (min-width: 960px) {
     ${ProjectMasonry} > *:hover & {
                 display: ${props => (props.hasDesc ? 'block' : 'none')};
+                opacity: ${props => (props.hasDesc ? 0.5 : 0)};
+                background-color: ${props => (props.hasDesc ? 'white' : 'none')};
             }
         }
 `;
