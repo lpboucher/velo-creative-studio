@@ -22,14 +22,15 @@ export const AddServiceContainer = styled.div`
 
     & > h3 {
         font-size: 20px;
+        line-height: 1.5;
     }
 
-    & > h5 {
+    & > div > h5 {
         font-weight: 500;
         margin-top: 60px;
     }
 
-    & > p {
+    & > div > p {
         font-size: 14px;
         margin-bottom: 10px;
     }
