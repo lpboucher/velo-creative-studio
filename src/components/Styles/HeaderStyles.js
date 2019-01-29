@@ -142,7 +142,7 @@ export const LanguageSelect = styled.ul`
 `;
 
 export const SubContainer = styled.div`
-  position: absolute;
+  position: ${props => (props.isOpen ? 'unset' : 'absolute')};
   height: 10vh;
   width: 100vw;
   padding: 20px 40px;
@@ -157,6 +157,7 @@ export const SubContainer = styled.div`
 
     & > ${StyledNavList} {
       display: block;
+      padding: 20px 0px;
     }
   }
 `;
