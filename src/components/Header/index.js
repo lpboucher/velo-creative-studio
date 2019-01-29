@@ -16,6 +16,7 @@ class Header extends Component {
     this.toggleHidden = this.toggleHidden.bind(this);
     this.resetHidden = this.resetHidden.bind(this);
     this.toggleDrawer = this.toggleDrawer.bind(this);
+    this.closeAll = this.closeAll.bind(this);
   }
 
   toggleHidden() {
@@ -27,6 +28,13 @@ class Header extends Component {
   toggleDrawer() {
     this.setState({
       isDrawerVisible: !this.state.isDrawerVisible,
+    });
+  }
+
+  closeAll() {
+    this.setState({
+      isHidden: true,
+      isDrawerVisible: false,
     });
   }
 
@@ -59,6 +67,7 @@ class Header extends Component {
             locale={locale}
             toggleDrawer={this.toggleDrawer}
             drawerOpen={this.state.isDrawerVisible}
+            close={this.closeAll}
           />
           <SelectLanguage langs={langs} locale={locale} />
         </HeaderContainer>

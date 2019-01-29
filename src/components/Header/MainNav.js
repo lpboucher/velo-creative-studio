@@ -13,6 +13,7 @@ const MainNav = ({
   locale,
   toggleDrawer,
   drawerOpen,
+  close,
 }) => (
   <NavContainer>
     <MobileIcon href="#" onClick={toggleHidden}>☰</MobileIcon>
@@ -31,7 +32,7 @@ const MainNav = ({
                  locale={locale}
                  isOpen={drawerOpen}
                  subMenu={node.subMenu}
-                 toggleDrawer={toggleDrawer}
+                 toggleDrawer={close}
                />
              :
              null}
@@ -55,6 +56,7 @@ MainNav.propTypes = {
   isHidden: PropTypes.bool.isRequired,
   toggleDrawer: PropTypes.func.isRequired,
   drawerOpen: PropTypes.bool.isRequired,
+  close: PropTypes.func.isRequired,
 };
 
 export default MainNav;
