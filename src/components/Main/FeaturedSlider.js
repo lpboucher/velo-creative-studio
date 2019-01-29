@@ -17,6 +17,15 @@ const FeaturedSlider = ({ features }) => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 1,
+          swipe: true,
+        },
+      },
+    ],
   };
   return (
     <Slider {...settings}>
