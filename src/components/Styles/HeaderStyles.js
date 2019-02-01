@@ -142,7 +142,7 @@ export const LanguageSelect = styled.ul`
 `;
 
 export const SubContainer = styled.div`
-  position: ${props => (props.isOpen ? 'unset' : 'absolute')};
+  position: absolute;
   height: 10vh;
   width: 100vw;
   padding: 20px 40px;
@@ -152,6 +152,7 @@ export const SubContainer = styled.div`
   top: 10%;
 
   @media (max-width: 900px) {
+    position: ${props => (props.isOpen ? 'unset' : 'absolute')};
     width: 50vw;
     left: 40%;
 
