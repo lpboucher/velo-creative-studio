@@ -146,6 +146,7 @@ export const ProjectMasonry = styled.div`
     display: grid;
     grid-auto-rows: 300px;
     grid-gap: 40px;
+    grid-auto-flow: dense;
     grid-template-columns: repeat(auto-fill, 2, 1fr);
     
     & > * {
