@@ -15,6 +15,7 @@ export const AddServiceWrapper = styled.div`
 
 export const AddServiceContainer = styled.div`
     padding: 40px;
+    height: 100%;
 
     & > * {
         font-weight: 300;
@@ -44,6 +45,7 @@ export const AddServiceMasonry = styled.div`
     grid-auto-rows: auto;
     grid-gap: 20px;
     grid-template-columns: repeat(2, 1fr);
+    height: 100%;
     
     & > * {
         break-inside: avoid;
